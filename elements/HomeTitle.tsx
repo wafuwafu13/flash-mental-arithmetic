@@ -14,7 +14,7 @@ export default HomeTitle;
 const styles = StyleSheet.create({
     title: {
       color: '#fff',
-      fontSize: 24,
-      top: 100
+      fontSize: 28,
+      top: 150
     }
 });
