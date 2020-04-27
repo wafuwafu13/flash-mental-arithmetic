@@ -4,17 +4,17 @@ import HomeTitle from '../elements/HomeTitle';
 import HomeButton from '../elements/HomeButton';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: { navigation: any}) => {
     return(
         <View style={styles.container}>
             <View style={styles.title}>
                 <HomeTitle/>
             </View>
             <View style={styles.button}>  
-                <HomeButton type='start'>
+                <HomeButton type='start' onPress={() => navigation.navigate('Start')}>
                     スタート
                 </HomeButton>
-                <HomeButton type='setting'>
+                <HomeButton type='setting' onPress={() => navigation.navigate('Setting')}>
                     設 定
                 </HomeButton>
             </View>
