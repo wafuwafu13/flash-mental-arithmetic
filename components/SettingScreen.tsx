@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     settingItem: {
-        bottom: hp('10%'),
+        bottom: hp('7%'),
         marginLeft: wp('5%')
     },
     backButton: {
