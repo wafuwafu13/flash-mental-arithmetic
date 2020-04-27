@@ -4,12 +4,13 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 type Props = {
     type: string
+    onPress: any
     children?: React.ReactNode
 }
 
 const Button = (props: Props) => {
 
-    const { type } = props
+    const { type, onPress } = props
 
     const blue = '#62D0E9'
     const red = '#FF4FC3'
@@ -18,7 +19,9 @@ const Button = (props: Props) => {
 
     return(
         <View style={styles.container}>
-            <TouchableHighlight style={[styles.button, {backgroundColor: bgColor}]}>
+            <TouchableHighlight 
+              style={[styles.button, {backgroundColor: bgColor}]}
+              onPress={onPress}>
                 <Text style={styles.buttonText}>
                     { props.children }
                 </Text>
