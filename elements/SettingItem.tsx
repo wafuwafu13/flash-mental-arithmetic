@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Modal, TouchableHighlight, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Modal, TouchableHighlight } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import SurfaceModal from '../components/SurfaceModal';
+import SheetModal from '../components/SheetModal';
+import DigitModal from '../components/DigitModal';
+import IntervalModal from '../components/IntervalModal';
+import SignModal from '../components/SignModal';
+import NumberColorModal from '../components/NumberColorModal';
+import BackgroundColorModal from '../components/BackgroundColorModal';
 
 type Props = {
     key: number
@@ -10,6 +17,15 @@ type Props = {
 const SettingItem = (props: Props) => {
 
     const { item } = props
+    const settingModal: any = {
+        '面数': <SurfaceModal onPress={() => setModalVisible(!modalVisible)} />,
+        '枚数': <SheetModal onPress={() => setModalVisible(!modalVisible)} />,
+        '桁数': <DigitModal onPress={() => setModalVisible(!modalVisible)} />,
+        '表示間隔': <IntervalModal onPress={() => setModalVisible(!modalVisible)} />,
+        '符号': <SignModal onPress={() => setModalVisible(!modalVisible)} />,
+        '数字の色': <NumberColorModal onPress={() => setModalVisible(!modalVisible)} />,
+        '背景色': <BackgroundColorModal onPress={() => setModalVisible(!modalVisible)} />
+    }
     const [modalVisible, setModalVisible] = useState(false)
 
     return(
@@ -21,16 +37,7 @@ const SettingItem = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >
-                <View style={styles.modal}>
-                    <Text style={styles.text}>面の数を入力してください。</Text>
-                    <TextInput
-                     style={styles.input} />
-                    <TouchableHighlight
-                      onPress={() => setModalVisible(!modalVisible)}
-                    >
-                          <Text>決定</Text>
-                    </TouchableHighlight>
-                </View>
+                { settingModal[item] }
             </Modal>
             <View  style={styles.button}>
                 <TouchableHighlight 
@@ -52,25 +59,6 @@ const styles = StyleSheet.create({
     item: {
         margin: wp('7%'),
         fontSize: wp('5%')
-    },
-    modal: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#FFFBFB',
-    },
-    text: {
-        fontSize: wp('5%'),
-        marginBottom: hp('5%')
-    },
-    input: {
-        backgroundColor: '#eee',
-        height: hp('7%'),
-        width: wp('20%'),
-        marginBottom: hp('7%'),
-        borderWidth: wp('0.3%'),
-        borderColor: '#DDD',
-        padding: wp('1%')
     },
     button: {
         alignItems: 'center',
