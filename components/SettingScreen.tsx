@@ -7,7 +7,7 @@ import BackButton from '../elements/BackButton';
 
 const SettingScreen = ({ navigation }: { navigation: any} ) => {
 
-    const settingItemList = ['面数', '枚数', '桁数', '表示間隔', '符号', '数字の色', '背景色']
+    const settingItemList = ['面数', '枚数', '桁数', '表示間隔', '符号', '数字の色', '背景色', 'ユーザー名']
 
     return(
         <View style={styles.container}>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
     title: {
         flex: 1,
-        top: wp('10%'),
+        top: wp('13%'),
         alignItems: 'center'
     },
     settingItem: {
