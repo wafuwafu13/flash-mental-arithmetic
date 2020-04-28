@@ -8,6 +8,7 @@ import IntervalModal from '../components/IntervalModal';
 import SignModal from '../components/SignModal';
 import NumberColorModal from '../components/NumberColorModal';
 import BackgroundColorModal from '../components/BackgroundColorModal';
+import UserNameModal from '../components/UserNameModal';
 
 type Props = {
     key: number
@@ -22,6 +23,7 @@ const SettingItem = (props: Props) => {
     const [sheet, setSheet] = useState<number>(10)
     const [digit, setDigit] = useState<number>(1)
     const [interval, setInterval] = useState<number>(1)
+    const [userName, setUserName] = useState<string>()
     const onPress = () => {
         setModalVisible(!modalVisible)
     }
@@ -32,13 +34,15 @@ const SettingItem = (props: Props) => {
         '表示間隔': <IntervalModal onPress={onPress} currentValue={interval} changeValue={setInterval} />,
         '符号': <SignModal onPress={onPress} />,
         '数字の色': <NumberColorModal onPress={onPress} />,
-        '背景色': <BackgroundColorModal onPress={onPress} />
+        '背景色': <BackgroundColorModal onPress={onPress} />,
+        'ユーザー名': <UserNameModal onPress={onPress} currentValue={userName} changeValue={setUserName}/>
     }
     const currentValue: any = {
         '面数': surface,
         '枚数': sheet,
         '桁数': digit,
         '表示間隔': interval,
+        'ユーザー名': userName
     }
 
     return(
@@ -73,11 +77,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     item: {
-        margin: wp('7%'),
+        margin: wp('5%'),
         fontSize: wp('5%')
     },
     currentValue: {
-        margin: wp('7%'),
+        margin: wp('5%'),
         fontSize: wp('5%')
     },
     button: {
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: wp('20%'),
         height: hp('3%'),
-        margin: wp('7%'),
+        margin: wp('5%'),
         marginLeft: 'auto' ,
         backgroundColor: '#FF4FC3'
     }
