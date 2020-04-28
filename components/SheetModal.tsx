@@ -4,17 +4,23 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 type Props = {
     onPress: any
+    currentValue:　any
+    changeValue: any
 }
 
 const SheetModal = (props: Props) => {
 
-    const { onPress } = props
+    const { onPress, currentValue, changeValue } = props
 
     return(
         <View style={styles.modal}>
             <Text style={styles.text}>枚数を入力してください。</Text>
             <TextInput
-              style={styles.input} />
+              keyboardType = 'numeric'
+              onChangeText={number => changeValue(number)}
+              value={currentValue}
+              style={styles.input} 
+            />
             <TouchableHighlight
               onPress={onPress}
             >
