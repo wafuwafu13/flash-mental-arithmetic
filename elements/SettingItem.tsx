@@ -17,26 +17,42 @@ type Props = {
 const SettingItem = (props: Props) => {
 
     const { item } = props
-    const settingModal: any = {
-        '面数': <SurfaceModal onPress={() => setModalVisible(!modalVisible)} />,
-        '枚数': <SheetModal onPress={() => setModalVisible(!modalVisible)} />,
-        '桁数': <DigitModal onPress={() => setModalVisible(!modalVisible)} />,
-        '表示間隔': <IntervalModal onPress={() => setModalVisible(!modalVisible)} />,
-        '符号': <SignModal onPress={() => setModalVisible(!modalVisible)} />,
-        '数字の色': <NumberColorModal onPress={() => setModalVisible(!modalVisible)} />,
-        '背景色': <BackgroundColorModal onPress={() => setModalVisible(!modalVisible)} />
-    }
     const [modalVisible, setModalVisible] = useState(false)
+    const [surface, setSurface] = useState<number>(1)
+    const [sheet, setSheet] = useState<number>(10)
+    const [digit, setDigit] = useState<number>(1)
+    const [interval, setInterval] = useState<number>(1)
+    const onPress = () => {
+        setModalVisible(!modalVisible)
+    }
+    const settingModal: any = {
+        '面数': <SurfaceModal onPress={onPress} currentValue={surface} changeValue={setSurface} />,
+        '枚数': <SheetModal onPress={onPress} currentValue={sheet} changeValue={setSheet} />,
+        '桁数': <DigitModal onPress={onPress} currentValue={digit} changeValue={setDigit} />,
+        '表示間隔': <IntervalModal onPress={onPress} currentValue={interval} changeValue={setInterval} />,
+        '符号': <SignModal onPress={onPress} />,
+        '数字の色': <NumberColorModal onPress={onPress} />,
+        '背景色': <BackgroundColorModal onPress={onPress} />
+    }
+    const currentValue: any = {
+        '面数': surface,
+        '枚数': sheet,
+        '桁数': digit,
+        '表示間隔': interval,
+    }
 
     return(
         <View style={styles.container}>
             <View>
                 <Text style={styles.item}>{ item }</Text>
             </View> 
+            <View>
+                <Text style={styles.currentValue}>{ currentValue[item] }</Text>
+            </View>
             <Modal 
               animationType="slide"
               visible={modalVisible}
-            >
+            >     
                 { settingModal[item] }
             </Modal>
             <View  style={styles.button}>
@@ -57,6 +73,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     item: {
+        margin: wp('7%'),
+        fontSize: wp('5%')
+    },
+    currentValue: {
         margin: wp('7%'),
         fontSize: wp('5%')
     },
