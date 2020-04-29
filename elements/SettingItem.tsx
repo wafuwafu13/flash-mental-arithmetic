@@ -9,6 +9,7 @@ import SignModal from '../components/SignModal';
 import NumberColorModal from '../components/NumberColorModal';
 import BackgroundColorModal from '../components/BackgroundColorModal';
 import UserNameModal from '../components/UserNameModal';
+import { updateSurface } from '../database/UpdateSurface';
 
 type Props = {
     key: number
@@ -24,11 +25,18 @@ const SettingItem = (props: Props) => {
     const [digit, setDigit] = useState<number>(1)
     const [interval, setInterval] = useState<number>(1)
     const [userName, setUserName] = useState<string>()
+
+    const onPressSurface = () => {
+        setModalVisible(!modalVisible)
+        updateSurface(surface)
+    }
+
     const onPress = () => {
         setModalVisible(!modalVisible)
     }
+    
     const settingModal: any = {
-        '面数': <SurfaceModal onPress={onPress} currentValue={surface} changeValue={setSurface} />,
+        '面数': <SurfaceModal onPress={onPressSurface} currentValue={surface} changeValue={setSurface} />,
         '枚数': <SheetModal onPress={onPress} currentValue={sheet} changeValue={setSheet} />,
         '桁数': <DigitModal onPress={onPress} currentValue={digit} changeValue={setDigit} />,
         '表示間隔': <IntervalModal onPress={onPress} currentValue={interval} changeValue={setInterval} />,
