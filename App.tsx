@@ -6,6 +6,10 @@ import ENV from './env.json'
 import HomeScreen from './components/HomeScreen';
 import StartScreen from './components/StartScreen';
 import SettingScreen from './components/SettingScreen';
+import { initializeSurface } from './database/InitializeSurface';
+import { initializeSheet } from './database/InitializeSheet';
+import { initializeDigit } from './database/InitializeDigit';
+import { initializeInterval } from './database/InitializeInterval';
 
 require("firebase/firestore");
 
@@ -19,29 +23,23 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-const Stack = createStackNavigator();
-
 firebase.auth().signInAnonymously().catch(function(error) {
-  console.log('error:' + error.code)
+  console.log('siginInError:' + error.code)
 });
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     const uid = user.uid;
-    const db = firebase.firestore()
-    db.collection(uid).doc('surface').set({
-      value: 1
-    })
-      .then(() => {
-        console.log('success')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    initializeSurface(uid)
+    initializeSheet(uid)
+    initializeDigit(uid)
+    initializeInterval(uid)
   } else {
     console.log('error...')
   }
 });
+
+const Stack = createStackNavigator();
 
 const App = () => {
 
@@ -62,8 +60,8 @@ const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
-   
   )
+
 }
 
 export default App

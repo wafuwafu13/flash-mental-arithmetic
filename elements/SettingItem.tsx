@@ -10,6 +10,9 @@ import NumberColorModal from '../components/NumberColorModal';
 import BackgroundColorModal from '../components/BackgroundColorModal';
 import UserNameModal from '../components/UserNameModal';
 import { updateSurface } from '../database/UpdateSurface';
+import { updateSheet } from '../database/UpdateSheet';
+import { updateDigit } from '../database/UpdateDigit';
+import { updateInterval } from '../database/UpdateInterval';
 
 type Props = {
     key: number
@@ -31,15 +34,30 @@ const SettingItem = (props: Props) => {
         updateSurface(surface)
     }
 
+    const onPressSheet = () => {
+        setModalVisible(!modalVisible)
+        updateSheet(sheet)
+    }
+
+    const onPressDigit = () => {
+        setModalVisible(!modalVisible)
+        updateDigit(digit)
+    }
+
+    const onPressInterval = () => {
+        setModalVisible(!modalVisible)
+        updateInterval(interval)
+    }
+
     const onPress = () => {
         setModalVisible(!modalVisible)
     }
     
     const settingModal: any = {
         '面数': <SurfaceModal onPress={onPressSurface} currentValue={surface} changeValue={setSurface} />,
-        '枚数': <SheetModal onPress={onPress} currentValue={sheet} changeValue={setSheet} />,
-        '桁数': <DigitModal onPress={onPress} currentValue={digit} changeValue={setDigit} />,
-        '表示間隔': <IntervalModal onPress={onPress} currentValue={interval} changeValue={setInterval} />,
+        '枚数': <SheetModal onPress={onPressSheet} currentValue={sheet} changeValue={setSheet} />,
+        '桁数': <DigitModal onPress={onPressDigit} currentValue={digit} changeValue={setDigit} />,
+        '表示間隔': <IntervalModal onPress={onPressInterval} currentValue={interval} changeValue={setInterval} />,
         '符号': <SignModal onPress={onPress} />,
         '数字の色': <NumberColorModal onPress={onPress} />,
         '背景色': <BackgroundColorModal onPress={onPress} />,
