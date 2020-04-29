@@ -1,16 +1,26 @@
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 export const updateSurface = (surface: number) => {
-    const db = firebase.firestore()
-        let surfaceRef = db.collection('user1').doc('surface')
-        surfaceRef.update({
-            value: surface
-        })
-          .then(() => {
-              console.log('success update')
-          })
-          .catch((error) => {
-              console.log('error:' + error)
-          })
 
+    firebase.auth().signInAnonymously().catch(function(error) {
+        console.log('error:' + error.code)
+    });
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          const uid = user.uid;
+          const db = firebase.firestore()
+          db.collection(uid).doc('surface').set({
+            value: surface
+          })
+            .then(() => {
+              console.log('success')
+            })
+            .catch((error) => {
+              console.log(error)
+            })
+        } else {
+          console.log('error...')
+        }
+      });
 }

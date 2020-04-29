@@ -21,16 +21,27 @@ firebase.initializeApp(firebaseConfig);
 
 const Stack = createStackNavigator();
 
-const db = firebase.firestore()
-db.collection('user1').doc('surface').set({
-  value: 1
-})
-  .then(() => {
-    console.log('success')
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+firebase.auth().signInAnonymously().catch(function(error) {
+  console.log('error:' + error.code)
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    const uid = user.uid;
+    const db = firebase.firestore()
+    db.collection(uid).doc('surface').set({
+      value: 1
+    })
+      .then(() => {
+        console.log('success')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  } else {
+    console.log('error...')
+  }
+});
 
 const App = () => {
 
