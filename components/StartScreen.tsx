@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Audio } from 'expo-av';
+import firebase from 'firebase'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 import AnswerScreen from './AnswerScreen';
 
 const StartScreen = ({ navigation }: any) => {
@@ -10,6 +12,7 @@ const StartScreen = ({ navigation }: any) => {
     const [correctAnswer, setCorrectAnser] = useState<any>()
     const [answer, setAnswer] = useState<any>()
     const [end, setEnd] = useState<boolean>(false);
+    let settingList: number[] = [];
 
     async function playSound(){
         try {
@@ -26,7 +29,7 @@ const StartScreen = ({ navigation }: any) => {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
       
-    async function play() {
+    async function play(interval: number) {
         let correctAnswer:number = 0
         await sleep(2000)
         for (var i = 0; i < 5; i++) {
@@ -34,15 +37,31 @@ const StartScreen = ({ navigation }: any) => {
             setCount(oneDigitRandomNumber)
             playSound()
             correctAnswer += oneDigitRandomNumber
-            console.log(correctAnswer)
-            await sleep(1000);
+            await sleep(interval);
         }
         setCorrectAnser(correctAnswer)
         setEnd(true)
     }
+
+    async function getSetting(){
+        const db = firebase.firestore()
+        let docRef = db.collection('u44Eo4syDYMGirlHHr1ty7FLHWt2').doc('interval')
+        await docRef.get().then((doc: any) => {
+        let interval = doc.data().value
+        settingList.push(interval)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    return settingList
+    }
     
     useEffect(() => {
-        play()
+        getSetting().then((value) => {
+            let interval: number = value[0]
+            console.log(interval + 'インターバル')
+            play(interval)
+        })
     },[])
     
     return(

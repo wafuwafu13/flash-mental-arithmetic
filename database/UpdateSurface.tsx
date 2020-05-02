@@ -14,7 +14,7 @@ export const updateSurface = (surface: number) => {
             value: surface
           })
             .then(() => {
-              console.log('success')
+              console.log('update surface success')
             })
             .catch((error) => {
               console.log(error)

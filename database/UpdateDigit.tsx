@@ -14,7 +14,7 @@ export const updateDigit = (digit: number) => {
             value: digit
           })
             .then(() => {
-              console.log('success')
+              console.log('update digit success')
             })
             .catch((error) => {
               console.log(error)

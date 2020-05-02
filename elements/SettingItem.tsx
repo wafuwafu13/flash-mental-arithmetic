@@ -26,7 +26,7 @@ const SettingItem = (props: Props) => {
     const [surface, setSurface] = useState<number>(1)
     const [sheet, setSheet] = useState<number>(10)
     const [digit, setDigit] = useState<number>(1)
-    const [interval, setInterval] = useState<number>(1)
+    const [interval, setInterval] = useState<number>(1000)
     const [userName, setUserName] = useState<string>()
 
     const onPressSurface = () => {

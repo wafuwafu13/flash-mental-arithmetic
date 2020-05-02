@@ -14,7 +14,7 @@ export const updateSheet = (sheet: number) => {
             value: sheet
           })
             .then(() => {
-              console.log('success')
+              console.log('update sheet success')
             })
             .catch((error) => {
               console.log(error)
