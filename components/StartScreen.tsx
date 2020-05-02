@@ -22,10 +22,10 @@ const StartScreen = () => {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
       
-    async function main() {
+    async function play() {
+        await sleep(2000)
         for (var i = 0; i < 10; i++) {
             let oneDigitRandomNumber = Math.floor(Math.random() * 9) + 1
-            console.log(oneDigitRandomNumber)
             setCount(oneDigitRandomNumber)
             playSound()
             await sleep(1000);
@@ -33,7 +33,7 @@ const StartScreen = () => {
     }
     
     useEffect(() => {
-        main()
+        play()
     },[])
     
     return(
