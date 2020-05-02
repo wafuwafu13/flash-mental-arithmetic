@@ -14,7 +14,7 @@ export const updateInterval = (interval: number) => {
             value: interval
           })
             .then(() => {
-              console.log('success')
+              console.log('update interval success')
             })
             .catch((error) => {
               console.log(error)
