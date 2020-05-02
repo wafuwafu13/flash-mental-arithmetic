@@ -3,9 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import firebase from 'firebase';
 import ENV from './env.json'
+
 import HomeScreen from './components/HomeScreen';
 import StartScreen from './components/StartScreen';
 import SettingScreen from './components/SettingScreen';
+import ResultScreen from './components/ResultScreen';
+
 import { initializeSurface } from './database/InitializeSurface';
 import { initializeSheet } from './database/InitializeSheet';
 import { initializeDigit } from './database/InitializeDigit';
@@ -56,6 +59,10 @@ const App = () => {
         />
         <Stack.Screen name="Setting" 
           component={SettingScreen} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Result" 
+          component={ResultScreen} 
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
