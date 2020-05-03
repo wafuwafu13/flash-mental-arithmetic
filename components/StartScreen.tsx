@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Audio } from 'expo-av';
-import firebase from 'firebase'
+import firebase from 'firebase';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import AnswerScreen from './AnswerScreen';
@@ -47,13 +47,13 @@ const StartScreen = ({ navigation }: any) => {
         const db = firebase.firestore()
         let docRef = db.collection('u44Eo4syDYMGirlHHr1ty7FLHWt2').doc('interval')
         await docRef.get().then((doc: any) => {
-        let interval = doc.data().value
-        settingList.push(interval)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-    return settingList
+            let interval = doc.data().value
+            settingList.push(interval)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        return settingList
     }
     
     useEffect(() => {
