@@ -17,9 +17,13 @@ const SheetSetting = (props: Props) => {
 
     const { currentSheet } = props
 
-    const onPress = () => {
+    const onPressDecision = () => {
         setModalVisible(!modalVisible)
         updateSheet(sheet)
+    }
+
+    const onPressBack = () => {
+        setModalVisible(!modalVisible)
     }
 
     return(
@@ -34,7 +38,7 @@ const SheetSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <SheetModal onPress={onPress} changeValue={setSheet} />
+                <SheetModal onPressDecision={onPressDecision} onPressBack={onPressBack} changeValue={setSheet} />
             </Modal>
             <View  style={styles.button}>
                 <TouchableHighlight 

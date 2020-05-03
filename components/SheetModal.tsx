@@ -3,13 +3,14 @@ import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-nat
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 type Props = {
-    onPress: any
+    onPressDecision: any
+    onPressBack: any
     changeValue: any
 }
 
 const SheetModal = (props: Props) => {
 
-    const { onPress, changeValue } = props
+    const { onPressDecision, onPressBack, changeValue } = props
 
     const [isValidated, setIsValidated] = useState<boolean>(false)
 
@@ -40,11 +41,15 @@ const SheetModal = (props: Props) => {
             />
             { isValidated && (
                 <TouchableHighlight
-                  onPress={onPress}
+                  onPress={onPressDecision}
                 >
                     <Text>決定</Text>
                 </TouchableHighlight>
             )}
+            <TouchableHighlight
+              onPress={onPressBack}>
+                  <Text>戻る</Text>
+            </TouchableHighlight>
         </View>
     )
 }
