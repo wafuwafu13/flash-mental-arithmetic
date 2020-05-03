@@ -6,11 +6,13 @@ type Props = {
     onPress: any
     setAnswer: any
     setAnswer2: any
+    setAnswer3: any
+    setAnswer4: any
 }
 
-const TwoAnswerScreen = (props: Props) => {
+const ThreeAnswerScreen = (props: Props) => {
 
-    const { onPress, setAnswer, setAnswer2 } = props
+    const { onPress, setAnswer, setAnswer2, setAnswer3, setAnswer4 } = props
 
     return(
         <View style={styles.container}>
@@ -25,6 +27,16 @@ const TwoAnswerScreen = (props: Props) => {
               onChangeText={number => setAnswer2(number)}
               style={styles.input} 
             />
+            <TextInput
+              keyboardType = 'numeric'
+              onChangeText={number => setAnswer3(number)}
+              style={styles.input} 
+            />
+            <TextInput
+              keyboardType = 'numeric'
+              onChangeText={number => setAnswer4(number)}
+              style={styles.input} 
+            />
             <TouchableHighlight
               onPress={onPress}
             >
@@ -34,7 +46,7 @@ const TwoAnswerScreen = (props: Props) => {
     )
 }
 
-export default TwoAnswerScreen
+export default ThreeAnswerScreen
 
 const styles = StyleSheet.create({
     container: {
