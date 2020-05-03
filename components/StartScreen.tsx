@@ -33,13 +33,13 @@ const StartScreen = ({ navigation }: any) => {
     function sleep(milliseconds: number) {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
-      
-    async function play(interval: number, digit: number) {
+
+    async function playStart(sheet: number, digit: number, interval: number) {
         let correctAnswer: number = 0
         let correctAnswer2: number = 0
         await sleep(2000)
         if (digit == 1) {
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < sheet; i++) {
                 let oneDigitRandomNumber = Math.floor(Math.random() * 9) + 1
                 let oneDigitRandomNumber2 =  Math.floor(Math.random() * 9) + 1
                 setNumber(oneDigitRandomNumber)
@@ -50,7 +50,7 @@ const StartScreen = ({ navigation }: any) => {
                 await sleep(interval);
             }
         } else if (digit == 2) {
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < sheet; i++) {
                 let min = 10
                 let max = 100
                 let twoDigitRandomNumber = Math.floor( Math.random() * (max + 1 - min) ) + min
@@ -87,12 +87,16 @@ const StartScreen = ({ navigation }: any) => {
     
     useEffect(() => {
         getSetting().then((settingList) => {
+
             let surface: number = settingList[3]
             setSurface(surface)
-            let interval: number = settingList[1]
-            console.log(interval + 'インターバル')
+
+            let sheet: number = settingList[2]
             let digit: number = settingList[0]
-            play(interval, digit)
+            let interval: number = settingList[1]
+            console.log(sheet + '枚')
+            console.log(interval + 'インターバル')
+            playStart(sheet, digit, interval)
         })
     },[])
     
