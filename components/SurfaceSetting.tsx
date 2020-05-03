@@ -22,6 +22,10 @@ const SurfaceSetting = (props: Props) => {
         updateSurface(surface)
     }
 
+    const onPressBack = () => {
+        setModalVisible(!modalVisible)
+    }
+
     return(
         <View style={styles.container}>
             <View>
@@ -34,7 +38,7 @@ const SurfaceSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <SurfaceModal onPress={onPressDecision} changeValue={setSurface} />
+                <SurfaceModal onPressDecision={onPressDecision} onPressBack={onPressBack} changeValue={setSurface} />
             </Modal>
             <View  style={styles.button}>
                 <TouchableHighlight 
