@@ -34,19 +34,34 @@ const StartScreen = ({ navigation }: any) => {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
       
-    async function play(interval: number) {
+    async function play(interval: number, digit: number) {
         let correctAnswer: number = 0
         let correctAnswer2: number = 0
         await sleep(2000)
-        for (var i = 0; i < 5; i++) {
-            let oneDigitRandomNumber = Math.floor(Math.random() * 9) + 1
-            let oneDigitRandomNumber2 =  Math.floor(Math.random() * 9) + 1
-            setNumber(oneDigitRandomNumber)
-            setNumber2(oneDigitRandomNumber2)
-            playSound()
-            correctAnswer += oneDigitRandomNumber
-            correctAnswer2 += oneDigitRandomNumber2
-            await sleep(interval);
+        if (digit == 1) {
+            for (var i = 0; i < 5; i++) {
+                let oneDigitRandomNumber = Math.floor(Math.random() * 9) + 1
+                let oneDigitRandomNumber2 =  Math.floor(Math.random() * 9) + 1
+                setNumber(oneDigitRandomNumber)
+                setNumber2(oneDigitRandomNumber2)
+                playSound()
+                correctAnswer += oneDigitRandomNumber
+                correctAnswer2 += oneDigitRandomNumber2
+                await sleep(interval);
+            }
+        } else if (digit == 2) {
+            for (var i = 0; i < 5; i++) {
+                let min = 10
+                let max = 100
+                let twoDigitRandomNumber = Math.floor( Math.random() * (max + 1 - min) ) + min
+                let twoDigitRandomNumber2 =  Math.floor( Math.random() * (max + 1 - min) ) + min
+                setNumber(twoDigitRandomNumber)
+                setNumber2(twoDigitRandomNumber2)
+                playSound()
+                correctAnswer += twoDigitRandomNumber
+                correctAnswer2 += twoDigitRandomNumber2
+                await sleep(interval);
+            }
         }
         setCorrectAnswer(correctAnswer)
         setCorrectAnswer2(correctAnswer2)
@@ -76,7 +91,8 @@ const StartScreen = ({ navigation }: any) => {
             setSurface(surface)
             let interval: number = settingList[1]
             console.log(interval + 'インターバル')
-            play(interval)
+            let digit: number = settingList[0]
+            play(interval, digit)
         })
     },[])
     

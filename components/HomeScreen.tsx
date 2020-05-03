@@ -1,27 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import firebase from 'firebase';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import HomeTitle from '../elements/HomeTitle';
 import HomeButton from '../elements/HomeButton';
 
 const HomeScreen = ({ navigation }: any) => {
-
-    const [surface, setSurface] = useState<any>()
-
-    const db = firebase.firestore()
-    const auth: any= firebase.auth()
-    console.log(auth)
-    //let docRef = db.collection(auth.currentUser.uid).doc('surface')
-    // docRef.get().then((doc: any) => {
-    //     let surface = doc.data().value
-    //     console.log(surface)
-    //     setSurface(surface)
-    // })
-    // .catch((error) => {
-    //     console.log(error)
-    // })
 
     return(
         <View style={styles.container}>
