@@ -1,13 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View } from 'react-native';
+import firebase from 'firebase';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+import SurfaceSetting from './SurfaceSetting';
+import SheetSetting from './SheetSetting';
+import DigitSetting from './DigitSetting';
+import IntervalSetting from './IntervalSetting';
+
 import SettingTitle from '../elements/SettingTitle';
-import SettingItem from '../elements/SettingItem';
 import BackButton from '../elements/BackButton';
 
 const SettingScreen = ({ navigation }: { navigation: any} ) => {
 
-    const settingItemList = ['面数', '枚数', '桁数', '表示間隔', '符号', '数字の色', '背景色', 'ユーザー名']
+    const [currentSurface, setCurrentSurface] = useState<any>()
+    const [currentSheet, setCurrentSheet] = useState<any>()
+    const [currentDigit, setCurrentDigit] = useState<any>()
+    const [currentInterval, setCurrentInterval] = useState<any>()
+
+    const db = firebase.firestore()
+    let docRef = db.collection('u44Eo4syDYMGirlHHr1ty7FLHWt2')
+    docRef.get().then((settings) => {
+        let settingList: number[] = []
+        settings.forEach((doc) => {
+            settingList.push(doc.data().value)
+        })
+        setCurrentSurface(settingList[3])
+        setCurrentSheet(settingList[2])
+        setCurrentDigit(settingList[0])
+        setCurrentInterval(settingList[1])
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 
     return(
         <View style={styles.container}>
@@ -15,7 +40,11 @@ const SettingScreen = ({ navigation }: { navigation: any} ) => {
                 <SettingTitle />
             </View>
             <View style={styles.settingItem}>
-               { settingItemList.map((item, index) => (<SettingItem key={index} item={item}/>))}
+                <SurfaceSetting currentSurface={currentSurface} />
+                <SheetSetting currentSheet={currentSheet} />
+                <DigitSetting currentDigit={currentDigit} />
+                <IntervalSetting currentInterval={currentInterval} />
+               {/* { settingItemList.map((item, index) => (<SettingItem key={index} item={item} />)) } */}
             </View>
             <View style={styles.backButton}>
                 <BackButton onPress={() => navigation.navigate('Home')} />
