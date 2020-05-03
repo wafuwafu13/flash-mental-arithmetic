@@ -45,7 +45,8 @@ const StartScreen = ({ navigation }: any) => {
 
     async function getSetting(){
         const db = firebase.firestore()
-        let docRef = db.collection('u44Eo4syDYMGirlHHr1ty7FLHWt2').doc('interval')
+        const auth: any= firebase.auth()
+        let docRef = db.collection(auth.currentUser.uid).doc('interval')
         await docRef.get().then((doc: any) => {
             let interval = doc.data().value
             settingList.push(interval)

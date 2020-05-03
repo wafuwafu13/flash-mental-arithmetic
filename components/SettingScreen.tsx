@@ -19,7 +19,8 @@ const SettingScreen = ({ navigation }: { navigation: any} ) => {
     const [currentInterval, setCurrentInterval] = useState<any>()
 
     const db = firebase.firestore()
-    let docRef = db.collection('u44Eo4syDYMGirlHHr1ty7FLHWt2')
+    const auth: any= firebase.auth()
+    let docRef = db.collection(auth.currentUser.uid)
     docRef.get().then((settings) => {
         let settingList: number[] = []
         settings.forEach((doc) => {
