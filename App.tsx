@@ -8,6 +8,7 @@ import HomeScreen from './components/HomeScreen';
 import StartScreen from './components/StartScreen';
 import SettingScreen from './components/SettingScreen';
 import ResultScreen from './components/ResultScreen';
+import TwoResultScreen from './components/TwoResultScreen';
 
 import { initializeSurface } from './database/InitializeSurface';
 import { initializeSheet } from './database/InitializeSheet';
@@ -63,6 +64,10 @@ const App = () => {
         />
         <Stack.Screen name="Result" 
           component={ResultScreen} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="TwoResult" 
+          component={TwoResultScreen} 
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

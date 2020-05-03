@@ -5,18 +5,24 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 type Props = {
     onPress: any
     setAnswer: any
+    setAnswer2: any
 }
 
 const AnswerScreen = (props: Props) => {
 
-    const { onPress, setAnswer } = props
+    const { onPress, setAnswer, setAnswer2 } = props
 
     return(
         <View style={styles.container}>
-             <Text style={styles.text}>回答を入力してください。</Text>
-             <TextInput
+            <Text style={styles.text}>回答を入力してください。</Text>
+            <TextInput
               keyboardType = 'numeric'
               onChangeText={number => setAnswer(number)}
+              style={styles.input} 
+            />
+            <TextInput
+              keyboardType = 'numeric'
+              onChangeText={number => setAnswer2(number)}
               style={styles.input} 
             />
             <TouchableHighlight
