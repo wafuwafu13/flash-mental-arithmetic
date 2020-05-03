@@ -34,7 +34,7 @@ const SheetSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <SheetModal onPress={onPress} currentValue={sheet} changeValue={setSheet} />
+                <SheetModal onPress={onPress} changeValue={setSheet} />
             </Modal>
             <View  style={styles.button}>
                 <TouchableHighlight 

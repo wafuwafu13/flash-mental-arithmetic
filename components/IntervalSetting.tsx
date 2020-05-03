@@ -34,7 +34,7 @@ const IntervalSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <IntervalModal onPress={onPress} currentValue={interval} changeValue={setInterval} />
+                <IntervalModal onPress={onPress}  changeValue={setInterval} />
             </Modal>
             <View style={styles.button}>
                 <TouchableHighlight 

@@ -1,31 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 type Props = {
     onPress: any
-    currentValue: any
     changeValue: any
 }
 
 const IntervalModal = (props: Props) => {
 
-    const { onPress, currentValue, changeValue } = props
+    const { onPress, changeValue } = props
+
+    const [isValidated, setIsValidated] = useState<boolean>(false)
+
+    let validateList: number[] = []
+    for (let i = 100; i <= 2000; i++) {
+        validateList.push(i)
+    } 
+
+    const handleInterval = (number: string) => {
+        const input_number = Number(number)
+        const index = validateList.findIndex(number => number == input_number)
+        if (index === -1) {
+            setIsValidated(false)
+        } else {
+            setIsValidated(true)
+            changeValue(number)
+        }
+    }
 
     return(
         <View style={styles.modal}>
             <Text style={styles.text}>表示間隔を入力してください。</Text>
             <TextInput
               keyboardType = 'numeric'
-              onChangeText={number => changeValue(number)}
-              value={currentValue}
+              onChangeText={handleInterval}
+              maxLength={4}
               style={styles.input} 
             />
-            <TouchableHighlight
-              onPress={onPress}
-            >
-                <Text>決定</Text>
-            </TouchableHighlight>
+            { isValidated && (
+                <TouchableHighlight
+                  onPress={onPress}
+                >
+                    <Text>決定</Text>
+                </TouchableHighlight>
+            )}
         </View>
     )
 }

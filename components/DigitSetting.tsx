@@ -34,7 +34,7 @@ const DigitSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <DigitModal onPress={onPress} currentValue={digit} changeValue={setDigit} />
+                <DigitModal onPress={onPress} changeValue={setDigit} />
             </Modal>
             <View  style={styles.button}>
                 <TouchableHighlight 

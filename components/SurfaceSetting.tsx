@@ -34,7 +34,7 @@ const SurfaceSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <SurfaceModal onPress={onPressDecision} currentValue={surface} changeValue={setSurface} />
+                <SurfaceModal onPress={onPressDecision} changeValue={setSurface} />
             </Modal>
             <View  style={styles.button}>
                 <TouchableHighlight 
