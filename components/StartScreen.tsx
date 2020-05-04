@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Audio } from 'expo-av';
 import firebase from 'firebase';
+import { Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import AnswerScreen from './AnswerScreen';
@@ -184,21 +185,27 @@ const StartScreen = ({ navigation }: any) => {
                     { surface == 2 && (
                         <View>
                             <Text style={styles.number}>{number}</Text>
+                            <Divider />
                             <Text style={styles.number}>{number2}</Text>
                         </View>
                     )}
                     { surface == 3 && (
                         <View>
                             <Text style={styles.number}>{number}</Text>
+                            <Divider />
                             <Text style={styles.number}>{number2}</Text>
+                            <Divider />
                             <Text style={styles.number}>{number3}</Text>
                         </View>
                     )}
                     { surface == 4 && (
                         <View>
                             <Text style={styles.number}>{number}</Text>
+                            <Divider />
                             <Text style={styles.number}>{number2}</Text>
+                            <Divider />
                             <Text style={styles.number}>{number3}</Text>
+                            <Divider />
                             <Text style={styles.number}>{number4}</Text>
                         </View>
                     )}
@@ -278,6 +285,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     number: {
-        fontSize: wp('10%')
+        fontSize: wp('13%'),
+        margin: wp('5%')
     }
 })
