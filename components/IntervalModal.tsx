@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: '#eee',
         height: hp('7%'),
-        width: wp('13%'),
+        width: wp('15%'),
         marginBottom: hp('7%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',
