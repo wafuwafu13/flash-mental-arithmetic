@@ -1,27 +1,38 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
+import { Card, Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const ResultScreen = ({ navigation, route }: any) => {
     return(
         <View style={styles.container}>
             { route.params.answer == route.params.correctAnswer ? (
-                <Text>成功</Text>
+                <Text style={styles.resultSuccess}>
+                    成 功
+                </Text>
               ) : (
-                <Text>失敗</Text>
+                <Text style={styles.resultFailure}>
+                    失 敗
+                </Text>
               )
             }
-            <Text>あなたの解答　{route.params.answer}</Text>
-            <Text>正解　{route.params.correctAnswer}</Text>
-            <TouchableHighlight
-              onPress={() => navigation.navigate('Start')}
-            >
-                <Text>もう一度</Text>
-            </TouchableHighlight>
+            <Card>
+                <Text style={styles.topAnswer}>
+                    回答　{route.params.answer}
+                </Text>
+                <Divider />
+                <Text style={styles.answer}>
+                    正解　{route.params.correctAnswer}
+                </Text>
+                <Divider />
+            </Card>
             <TouchableHighlight
               onPress={() => navigation.navigate('Home')}
+              style={styles.button}
             >
-                <Text>ホームへ</Text>
+                <Text style={styles.buttonText}>
+                    ホームへ
+                </Text>
             </TouchableHighlight>
         </View>
     )
@@ -31,8 +42,45 @@ export default ResultScreen
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+      marginTop: wp('30%'),
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    resultSuccess: {
+      fontSize: wp('10%'),
+      fontWeight: '700',
+      color: '#FF4FC3',
+    },
+    resultFailure: {
+      fontSize: wp('10%'),
+      fontWeight: '700',
+      color: '#62D0E9',
+    },
+    topAnswer: {
+      fontSize: wp('5%'),
+      marginTop: wp('2%'),
+      marginRight: wp('7%'),
+      marginLeft: wp('7%'),
+      marginBottom: wp('1%')
+    },
+    answer: {
+      fontSize: wp('5%'),
+      marginTop: wp('7%'),
+      marginRight: wp('7%'),
+      marginLeft: wp('7%'),
+      marginBottom: wp('1%')
+    },
+    button: {
+      width: wp('40%'),
+      height: hp('5%'),
+      marginTop: hp('7%'),
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 4,
+      backgroundColor: '#7244F4'
+    },
+    buttonText: {
+      color: '#fff',
+      fontSize: wp('5%')
     }
 })
