@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TouchableHighlight } from 'react-native';
 import { Card, Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const ResultScreen = ({ navigation, route }: any) => {
     return(
-        <View style={styles.container}>
+        <ScrollView>
+          <View style={styles.container}>
             { route.params.answer == route.params.correctAnswer && 
               route.params.answer2 == route.params.correctAnswer2 &&
               route.params.answer3  == route.params.correctAnswer3 &&
@@ -60,7 +61,8 @@ const ResultScreen = ({ navigation, route }: any) => {
                     ホームへ
                 </Text>
             </TouchableHighlight>
-        </View>
+          </View>
+        </ScrollView>
     )
 }
 
@@ -100,6 +102,7 @@ const styles = StyleSheet.create({
     width: wp('40%'),
     height: hp('5%'),
     marginTop: hp('7%'),
+    marginBottom: hp('7%'),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,

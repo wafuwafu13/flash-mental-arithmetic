@@ -59,7 +59,7 @@ export default ResultScreen
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: wp('30%'),
+    marginTop: wp('10%'),
     alignItems: 'center',
     justifyContent: 'center'
   },
