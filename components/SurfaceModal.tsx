@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-native';
+import { Header } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+import BackArrow from '../elements/BackArrow';
 
 type Props = {
     onPressDecision: any
@@ -32,7 +35,12 @@ const SurfaceModal = (props: Props) => {
 
     return(
         <View style={styles.modal}>
-            <Text style={styles.text}>面の数を入力してください。</Text>
+            <Header
+              leftComponent={<BackArrow onPress={onPressBack} />}
+              centerComponent={{ text: '面数', style: { color: '#fff', fontSize: wp('5%')} }}
+              backgroundColor='#7244F4'
+            />
+            <Text style={styles.text}>1~4の数字を入力してください</Text>
             <TextInput
               keyboardType = 'numeric'
               onChangeText={handleSurface}
@@ -42,14 +50,13 @@ const SurfaceModal = (props: Props) => {
             { isValidated && (
                 <TouchableHighlight
                   onPress={onPressDecision}
+                  style={styles.button}
                 >
-                    <Text>決定</Text>
+                    <Text style={styles.buttonText}>
+                        決 定
+                    </Text>
                 </TouchableHighlight>
             )}
-            <TouchableHighlight
-              onPress={onPressBack}>
-                  <Text>戻る</Text>
-            </TouchableHighlight>
         </View>
     )
 }
@@ -58,22 +65,34 @@ export default SurfaceModal;
 
 const styles = StyleSheet.create({
     modal: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#FFFBFB',
     },
     text: {
+        marginTop: wp('10%'),
         fontSize: wp('5%'),
         marginBottom: hp('5%')
     },
     input: {
         backgroundColor: '#eee',
         height: hp('7%'),
-        width: wp('20%'),
+        width: wp('10%'),
         marginBottom: hp('7%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',
         padding: wp('1%')
+    },
+    button: {
+        width: wp('65%'),
+        height: hp('5%'),
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 4,
+        backgroundColor: '#7244F4'
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: wp('5%')
     }
 })
