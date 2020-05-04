@@ -57,26 +57,44 @@ const ThreeAnswerScreen = (props: Props) => {
 
     return(
         <View style={styles.container}>
-            <Text style={styles.text}>回答を入力してください。</Text>
+            <Text style={styles.text}>
+                回答を入力してください。
+            </Text>
+            <Text style={styles.answerText}>
+                回答１
+            </Text>
             <TextInput
               keyboardType = 'numeric'
               onChangeText={handleAnswer}
               style={styles.input} 
+              maxLength={6}
             />
+            <Text style={styles.answerText}>
+                回答２
+            </Text>
             <TextInput
               keyboardType = 'numeric'
               onChangeText={handleAnswer2}
               style={styles.input} 
+              maxLength={6}
             />
+            <Text style={styles.answerText}>
+                回答３
+            </Text>
             <TextInput
               keyboardType = 'numeric'
               onChangeText={handleAnswer3}
               style={styles.input} 
+              maxLength={6}
             />
+            <Text style={styles.answerText}>
+                回答４
+            </Text>
             <TextInput
               keyboardType = 'numeric'
               onChangeText={handleAnswer4}
               style={styles.input} 
+              maxLength={6}
             />
             { isAnswered && isAnswered2 && isAnswered3 && isAnswered4 &&(
                 <TouchableHighlight
@@ -103,10 +121,14 @@ const styles = StyleSheet.create({
         fontSize: wp('5%'),
         marginBottom: hp('5%')
     },
+    answerText: {
+        fontSize: wp('4%'),
+        marginBottom: hp('1%')
+    },
     input: {
         backgroundColor: '#eee',
         height: hp('7%'),
-        width: wp('30%'),
+        width: wp('20%'),
         marginBottom: hp('2%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',

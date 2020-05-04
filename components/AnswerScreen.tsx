@@ -29,6 +29,7 @@ const AnswerScreen = (props: Props) => {
               keyboardType = 'numeric'
               onChangeText={handleAnswer}
               style={styles.input} 
+              maxLength={6}
             />
             { isAnswered && (
                 <TouchableHighlight
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     input: {
         backgroundColor: '#eee',
         height: hp('7%'),
-        width: wp('30%'),
+        width: wp('20%'),
         marginBottom: hp('7%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',
