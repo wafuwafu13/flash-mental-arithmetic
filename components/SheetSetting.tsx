@@ -43,6 +43,7 @@ const SheetSetting = (props: Props) => {
                 <Icon
                   name="arrow-forward"
                   style={styles.icon}
+                  size={wp('7%')}
                 />
                 <Text style={styles.value}>
                     { sheet ? (

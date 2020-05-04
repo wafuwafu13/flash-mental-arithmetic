@@ -42,6 +42,7 @@ const SurfaceSetting = (props: Props) => {
                 </Text>
                 <Icon
                   name="arrow-forward"
+                  size={wp('7%')}
                   style={styles.icon}
                 />
                 <Text style={styles.value}>

@@ -39,7 +39,7 @@ const SettingScreen = ({ navigation }: any ) => {
         <View style={styles.container}>
             <Header
               leftComponent={<BackArrow onPress={() => navigation.navigate('Home')} />}
-              centerComponent={{ text: '設 定', style: { color: '#fff', fontSize: wp('5%')} }}
+              centerComponent={{ text: '設 定', style: { color: '#fff', fontSize: wp('5%'), paddingBottom: wp('1%')} }}
               backgroundColor='#7244F4'
             />
             <View style={styles.wrapper}>

@@ -23,6 +23,7 @@ const EditButton = (props: Props) => {
             <Icon
               name="edit"
               color="#fff"
+              size={wp('6%')}
             />
         </TouchableHighlight>
         </View>
