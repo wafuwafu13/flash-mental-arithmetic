@@ -8,7 +8,7 @@ type Props = {
     children?: React.ReactNode
 }
 
-const Button = (props: Props) => {
+const HomeButton = (props: Props) => {
 
     const { type, onPress } = props
 
@@ -30,7 +30,7 @@ const Button = (props: Props) => {
     )
 }
 
-export default Button;
+export default HomeButton;
 
 const styles = StyleSheet.create({
     container: {
@@ -41,9 +41,11 @@ const styles = StyleSheet.create({
         width: wp('65%'),
         height: hp('5%'),
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 4
     },
     buttonText: {
+        color: '#131212',
         fontSize: wp('6%')
     }
 })
