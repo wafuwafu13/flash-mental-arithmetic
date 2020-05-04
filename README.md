@@ -4,7 +4,7 @@
 
 <img src="https://user-images.githubusercontent.com/50798936/80951441-e0d84400-8e32-11ea-8791-205fdbac006c.png" width="200px">
 
-設定画面で面数、枚数、桁数、表示間隔を設定！
+設定画面で、面数、枚数、桁数、表示間隔を設定！
 
 <img src="https://user-images.githubusercontent.com/50798936/80951457-e59cf800-8e32-11ea-93b6-9208e77023e8.png" width="200px">
 
