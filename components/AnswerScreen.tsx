@@ -24,7 +24,9 @@ const AnswerScreen = (props: Props) => {
 
     return(
         <View style={styles.container}>
-            <Text style={styles.text}>回答を入力してください。</Text>
+            <Text style={styles.text}>
+                回答を入力してください。
+            </Text>
             <TextInput
               keyboardType = 'numeric'
               onChangeText={handleAnswer}
@@ -51,7 +53,8 @@ export default AnswerScreen
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center',
+        flex: 1,
+        marginTop: wp('30%'),
         alignItems: 'center',
         backgroundColor: '#1B1A1A'
     },

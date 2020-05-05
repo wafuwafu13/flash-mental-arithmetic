@@ -77,7 +77,7 @@ export default TwoAnswerScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: wp('10%'),
+        marginTop: wp('20%'),
         alignItems: 'center',
         backgroundColor: '#1B1A1A'
     },

@@ -117,7 +117,7 @@ export default FourAnswerScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: wp('10%'),
+        marginTop: wp('13%'),
         alignItems: 'center',
         backgroundColor: '#1B1A1A'
     },

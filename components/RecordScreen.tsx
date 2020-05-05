@@ -15,15 +15,12 @@ const RecordScreen = ({ navigation }: any) => {
     useEffect(() => {
         const auth: any= firebase.auth()
         const db = firebase.firestore()
-        console.log(auth.currentUser.uid)
-
         let docRef = db.collection(`records/${auth.currentUser.uid}/record`)
         docRef.orderBy('date', 'desc').get().then((records) => {
             let recordList: number[] = []
             records.forEach((doc: any) => {
                 recordList.push({ ...doc.data(), key: doc.id })
             })
-            console.log(recordList)
             setRecordList(recordList)
         })
         .catch((error) => {
