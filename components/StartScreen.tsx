@@ -312,7 +312,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1B1A1A'
     },
     number: {
-        fontSize: wp('13%'),
+        fontSize: wp('18%'),
         margin: wp('5%'),
         color: '#fff'
     }
