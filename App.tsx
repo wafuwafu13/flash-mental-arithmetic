@@ -11,11 +11,13 @@ import ResultScreen from './components/ResultScreen';
 import TwoResultScreen from './components/TwoResultScreen';
 import ThreeResultScreen from './components/ThreeResultScreen';
 import FourResultScreen from './components/FourResultScreen';
+import RecordScreen from './components/RecordScreen';
 
 import { initializeSurface } from './database/InitializeSurface';
 import { initializeSheet } from './database/InitializeSheet';
 import { initializeDigit } from './database/InitializeDigit';
 import { initializeInterval } from './database/InitializeInterval';
+import { initializeRecord } from './database/InitializeRecord';
 
 require("firebase/firestore");
 
@@ -41,6 +43,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     initializeSheet(uid)
     initializeDigit(uid)
     initializeInterval(uid)
+    initializeRecord(uid)
   } else {
     console.log('error...')
   }
@@ -79,6 +82,10 @@ const App = () => {
         />
         <Stack.Screen name="FourResult" 
           component={FourResultScreen} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Record" 
+          component={RecordScreen} 
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -24,8 +24,8 @@ const AnswerScreen = (props: Props) => {
 
     return(
         <View style={styles.container}>
-             <Text style={styles.text}>回答を入力してください。</Text>
-             <TextInput
+            <Text style={styles.text}>回答を入力してください。</Text>
+            <TextInput
               keyboardType = 'numeric'
               onChangeText={handleAnswer}
               style={styles.input} 
@@ -41,7 +41,7 @@ const AnswerScreen = (props: Props) => {
                     <Text style={styles.buttonText}>
                         回答
                     </Text>
-              </TouchableHighlight>
+                </TouchableHighlight>
             )}
         </View>
     )
@@ -51,7 +51,6 @@ export default AnswerScreen
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#1B1A1A'

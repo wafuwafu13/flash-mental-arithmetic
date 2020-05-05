@@ -12,20 +12,30 @@ const HomeButton = (props: Props) => {
 
     const { type, onPress } = props
 
-    const blue = '#62D0E9'
+    const blue = '#05BEE7'
     const red = '#FF4FC3'
-    const darkBlue = '#4594A6'
+    const purple = '#7244F4'
+    const darkBlue = '#04728A'
     const darkRed = '#B73C8D'
+    const darkPurple = "#492B9D"
     
-    let bgColor = (type === 'start') ? blue : red
-    let overBgColor = (type == 'start') ? darkBlue : darkRed
+    const bgColor: any = {
+        'start': blue,
+        'setting': red,
+        'record': purple
+    }
+    const overBgColor: any = {
+        'start': darkBlue,
+        'setting': darkRed,
+        'record': darkPurple
+    }
 
     return(
         <View style={styles.container}>
             <TouchableHighlight 
-              style={[styles.button, {backgroundColor: bgColor}]}
+              style={[styles.button, {backgroundColor: bgColor[type]}]}
               onPress={onPress}
-              underlayColor={overBgColor}
+              underlayColor={overBgColor[type]}
               activeOpacity={0.7}
             >
                 <Text style={styles.buttonText}>
@@ -51,7 +61,8 @@ const styles = StyleSheet.create({
         borderRadius: 4
     },
     buttonText: {
-        color: '#131212',
+        color: '#FEFFF3',
+        fontWeight: '500',
         fontSize: wp('6%')
     }
 })

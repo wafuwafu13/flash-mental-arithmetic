@@ -4,16 +4,19 @@ import { Icon } from 'react-native-elements';
 
 type Props = {
     onPress: any
+    type: string
 }
 
 const BackArrow = (props: Props) => {
 
-    const { onPress } = props
+    const { onPress, type } = props
+
+    const underlayColor = (type == 'setting') ? '#FF4FC3' : '#7244F4'
 
     return(
         <TouchableHighlight
           onPress={onPress}
-          underlayColor={'#7244F4'} 
+          underlayColor={underlayColor} 
         >
             <Icon
               name="arrow-back"

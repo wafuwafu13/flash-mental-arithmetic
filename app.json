@@ -2,7 +2,7 @@
   "expo": {
     "name": "多面！フラッシュ暗算",
     "description": "FlashMentalArithmeticApp",
-    "slug": "多面！フラッシュ暗算",
+    "slug": "flash-mental-arithmetic",
     "privacy": "unlisted",
     "platforms": [
       "ios",
