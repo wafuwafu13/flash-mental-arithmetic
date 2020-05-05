@@ -3,11 +3,11 @@ import { StyleSheet, View, Text, Modal } from 'react-native';
 import { Icon } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import DigitModal from '../components/DigitModal';
+import DigitModal from '../Modal/DigitModal';
 
-import EditButton from '../elements/EditButton';
+import EditButton from '../../elements/EditButton';
 
-import { updateDigit } from '../database/UpdateDigit';
+import { updateDigit } from '../../database/Update/UpdateDigit';
 
 type Props = {
     currentDigit: any

@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-nat
 import { Header } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import BackArrow from '../elements/BackArrow';
+import BackArrow from '../../elements/BackArrow';
 
 type Props = {
     onPressDecision: any
@@ -11,7 +11,7 @@ type Props = {
     changeValue: any
 }
 
-const DigitModal = (props: Props) => {
+const SurfaceModal = (props: Props) => {
 
     const { onPressDecision, onPressBack, changeValue } = props
 
@@ -22,7 +22,7 @@ const DigitModal = (props: Props) => {
         validateList.push(i)
     } 
 
-    const handleDigit = (number: string) => {
+    const handleSurface = (number: string) => {
         const input_number = Number(number)
         const index = validateList.findIndex(number => number == input_number)
         if (index === -1) {
@@ -37,13 +37,13 @@ const DigitModal = (props: Props) => {
         <View style={styles.modal}>
             <Header
               leftComponent={<BackArrow type="setting" onPress={onPressBack} />}
-              centerComponent={{ text: '桁 数', style: { color: '#fff', fontSize: wp('5%')} }}
+              centerComponent={{ text: '面 数', style: { color: '#fff', fontSize: wp('5%')} }}
               backgroundColor='#FF4FC3'
             />
-            <Text style={styles.text}>1~4の数字を入力してください。</Text>
+            <Text style={styles.text}>1~4の数字を入力してください</Text>
             <TextInput
               keyboardType = 'numeric'
-              onChangeText={handleDigit}
+              onChangeText={handleSurface}
               maxLength={1}
               style={styles.input} 
             />
@@ -63,7 +63,7 @@ const DigitModal = (props: Props) => {
     )
 }
 
-export default DigitModal;
+export default SurfaceModal;
 
 const styles = StyleSheet.create({
     modal: {

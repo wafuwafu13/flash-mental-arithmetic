@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import HomeTitle from '../elements/HomeTitle';
-import HomeButton from '../elements/HomeButton';
+import HomeTitle from '../../elements/HomeTitle';
+import HomeButton from '../../elements/HomeButton';
 
 const HomeScreen = ({ navigation }: any) => {
 

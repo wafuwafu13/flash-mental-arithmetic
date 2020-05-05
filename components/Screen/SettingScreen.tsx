@@ -4,12 +4,12 @@ import firebase from 'firebase';
 import { Header, Card, Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import SurfaceSetting from './SurfaceSetting';
-import SheetSetting from './SheetSetting';
-import DigitSetting from './DigitSetting';
-import IntervalSetting from './IntervalSetting';
+import SurfaceSetting from '../Setting/SurfaceSetting';
+import SheetSetting from '../Setting/SheetSetting';
+import DigitSetting from '../Setting/DigitSetting';
+import IntervalSetting from '../Setting/IntervalSetting';
 
-import BackArrow from '../elements/BackArrow';
+import BackArrow from '../../elements/BackArrow';
 
 const SettingScreen = ({ navigation }: any ) => {
 

@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 import { Card, Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import { addRecord } from '../database/AddRecord';
+import { addRecord } from '../../database/AddRecord';
 
 const ResultScreen = ({ navigation, route }: any) => {
 

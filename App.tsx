@@ -4,20 +4,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import firebase from 'firebase';
 import ENV from './env.json'
 
-import HomeScreen from './components/HomeScreen';
-import StartScreen from './components/StartScreen';
-import SettingScreen from './components/SettingScreen';
-import ResultScreen from './components/ResultScreen';
-import TwoResultScreen from './components/TwoResultScreen';
-import ThreeResultScreen from './components/ThreeResultScreen';
-import FourResultScreen from './components/FourResultScreen';
-import RecordScreen from './components/RecordScreen';
+import HomeScreen from './components/Screen/HomeScreen';
+import StartScreen from './components/Screen/StartScreen';
+import SettingScreen from './components/Screen/SettingScreen';
+import ResultScreen from './components/Screen/ResultScreen';
+import TwoResultScreen from './components/Screen/TwoResultScreen';
+import ThreeResultScreen from './components/Screen/ThreeResultScreen';
+import FourResultScreen from './components/Screen/FourResultScreen';
+import RecordScreen from './components/Screen/RecordScreen';
 
-import { initializeSurface } from './database/InitializeSurface';
-import { initializeSheet } from './database/InitializeSheet';
-import { initializeDigit } from './database/InitializeDigit';
-import { initializeInterval } from './database/InitializeInterval';
-import { initializeRecord } from './database/InitializeRecord';
+import { initializeSurface } from './database/Initialize/InitializeSurface';
+import { initializeSheet } from './database/Initialize/InitializeSheet';
+import { initializeDigit } from './database/Initialize/InitializeDigit';
+import { initializeInterval } from './database/Initialize/InitializeInterval';
+import { initializeRecord } from './database/Initialize/InitializeRecord';
 
 require("firebase/firestore");
 
