@@ -36,9 +36,9 @@ const SheetModal = (props: Props) => {
     return(
         <View style={styles.modal}>
             <Header
-              leftComponent={<BackArrow onPress={onPressBack} />}
+              leftComponent={<BackArrow type="setting" onPress={onPressBack} />}
               centerComponent={{ text: '枚数', style: { color: '#fff', fontSize: wp('5%')} }}
-              backgroundColor='#7244F4'
+              backgroundColor='#FF4FC3'
             />
             <Text style={styles.text}>1~100の数字を入力してください。</Text>
             <TextInput
@@ -52,7 +52,7 @@ const SheetModal = (props: Props) => {
                   onPress={onPressDecision}
                   style={styles.button}
                   activeOpacity={0.7}
-                  underlayColor={'#492B9D'}
+                  underlayColor={'#B73C8D'}
                 >
                     <Text style={styles.buttonText}>
                         決 定
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 4,
-        backgroundColor: '#7244F4'
+        backgroundColor: '#FF4FC3'
     },
     buttonText: {
         color: '#fff',

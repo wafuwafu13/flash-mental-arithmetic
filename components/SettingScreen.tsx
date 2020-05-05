@@ -26,8 +26,8 @@ const SettingScreen = ({ navigation }: any ) => {
         settings.forEach((doc) => {
             settingList.push(doc.data().value)
         })
-        setCurrentSurface(settingList[3])
-        setCurrentSheet(settingList[2])
+        setCurrentSurface(settingList[4])
+        setCurrentSheet(settingList[3])
         setCurrentDigit(settingList[0])
         setCurrentInterval(settingList[1])
     })
@@ -38,9 +38,9 @@ const SettingScreen = ({ navigation }: any ) => {
     return(
         <View style={styles.container}>
             <Header
-              leftComponent={<BackArrow onPress={() => navigation.navigate('Home')} />}
+              leftComponent={<BackArrow type="setting" onPress={() => navigation.navigate('Home')} />}
               centerComponent={{ text: '設 定', style: { color: '#fff', fontSize: wp('5%'), paddingBottom: wp('1%')} }}
-              backgroundColor='#7244F4'
+              backgroundColor='#FF4FC3'
             />
             <View style={styles.wrapper}>
                 <Card>

@@ -3,7 +3,23 @@ import { StyleSheet, View, ScrollView, Text, TouchableHighlight } from 'react-na
 import { Card, Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+import { addRecord } from '../database/AddRecord';
+
 const ResultScreen = ({ navigation, route }: any) => {
+
+    const result: string = (route.params.answer == route.params.correctAnswer && 
+                            route.params.answer2 == route.params.correctAnswer2 &&
+                            route.params.answer3  == route.params.correctAnswer3 &&
+                            route.params.answer4  == route.params.correctAnswer4) ? '成功' : '失敗'
+    
+    addRecord(
+      route.params.surface,
+      route.params.sheet,
+      route.params.digit,
+      route.params.interval,
+      result 
+    )
+
     return(
         <ScrollView>
           <View style={styles.container}>

@@ -19,6 +19,9 @@ const HomeScreen = ({ navigation }: any) => {
                 <HomeButton type='setting' onPress={() => navigation.navigate('Setting')}>
                     <Text style={styles.buttonText}>設 定</Text>
                 </HomeButton>
+                <HomeButton type='record' onPress={() => navigation.navigate('Record')}>
+                    <Text style={styles.buttonText}>記 録</Text>
+                </HomeButton>
             </View>
         </View>
     )
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     buttonText: {
+        color: '#FEFFF3',
         fontSize: wp('5%')
     }
 })

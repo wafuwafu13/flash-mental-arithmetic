@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
         width: wp('10%'),
         height: wp('10%'),
         borderRadius: 50,
-        backgroundColor: '#7244F4'
+        backgroundColor: '#FF4FC3'
     }
 })
