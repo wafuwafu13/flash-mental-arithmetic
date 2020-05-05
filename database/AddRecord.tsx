@@ -7,6 +7,7 @@ export const addRecord = (surface: number, sheet: number, digit: number, interva
           const uid = user.uid;
           const db = firebase.firestore()
           db.collection(`records/${uid}/record`).add({
+              date: firebase.firestore.FieldValue.serverTimestamp(),
               surface: surface,
               sheet: sheet,
               digit: digit,

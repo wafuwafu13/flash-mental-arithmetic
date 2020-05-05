@@ -18,7 +18,7 @@ const RecordScreen = ({ navigation }: any) => {
         console.log(auth.currentUser.uid)
 
         let docRef = db.collection(`records/${auth.currentUser.uid}/record`)
-        docRef.get().then((records) => {
+        docRef.orderBy('date', 'desc').get().then((records) => {
             let recordList: number[] = []
             records.forEach((doc: any) => {
                 recordList.push({ ...doc.data(), key: doc.id })
