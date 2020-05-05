@@ -1,16 +1,17 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TouchableHighlight } from 'react-native';
 import { Card, Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import { addRecord } from '../database/AddRecord';
+import { addRecord } from '../../database/AddRecord';
 
-const TwoResultScreen = ({ navigation, route }: any) => {
-
+const ResultScreen = ({ navigation, route }: any) => {
 
     const result: string = (route.params.answer == route.params.correctAnswer && 
-                            route.params.answer2 == route.params.correctAnswer2) ? '成功' : '失敗'
-
+                            route.params.answer2 == route.params.correctAnswer2 &&
+                            route.params.answer3  == route.params.correctAnswer3 &&
+                            route.params.answer4  == route.params.correctAnswer4) ? '成功' : '失敗'
+    
     addRecord(
       route.params.surface,
       route.params.sheet,
@@ -20,9 +21,12 @@ const TwoResultScreen = ({ navigation, route }: any) => {
     )
 
     return(
-        <View style={styles.container}>
+        <ScrollView>
+          <View style={styles.container}>
             { route.params.answer == route.params.correctAnswer && 
-              route.params.answer2 == route.params.correctAnswer2 ? (
+              route.params.answer2 == route.params.correctAnswer2 &&
+              route.params.answer3  == route.params.correctAnswer3 &&
+              route.params.answer4  == route.params.correctAnswer4 ? (
                 <Text style={styles.resultSuccess}>
                     成 功
                 </Text>
@@ -48,6 +52,22 @@ const TwoResultScreen = ({ navigation, route }: any) => {
                 <Text style={styles.answer}>
                     ２の正解　{route.params.correctAnswer2}
                 </Text>
+                <Divider />
+                <Text style={styles.answer}>
+                    ３の回答　{route.params.answer3}
+                </Text>
+                <Divider />
+                <Text style={styles.answer}>
+                    ３の正解　{route.params.correctAnswer3}
+                </Text>
+                <Divider />
+                <Text style={styles.answer}>
+                    ４の回答　{route.params.answer4}
+                </Text>
+                <Divider />
+                <Text style={styles.answer}>
+                    ４の正解　{route.params.correctAnswer4}
+                </Text>
             </Card>
             <TouchableHighlight
               onPress={() => navigation.navigate('Home')}
@@ -59,15 +79,16 @@ const TwoResultScreen = ({ navigation, route }: any) => {
                     ホームへ
                 </Text>
             </TouchableHighlight>
-        </View>
+          </View>
+        </ScrollView>
     )
 }
 
-export default TwoResultScreen
+export default ResultScreen
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: wp('10%'),
+    marginTop: wp('15%'),
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -99,6 +120,7 @@ const styles = StyleSheet.create({
     width: wp('40%'),
     height: hp('5%'),
     marginTop: hp('7%'),
+    marginBottom: hp('7%'),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,

@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-nat
 import { Header } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import BackArrow from '../elements/BackArrow';
+import BackArrow from '../../elements/BackArrow';
 
 type Props = {
     onPressDecision: any

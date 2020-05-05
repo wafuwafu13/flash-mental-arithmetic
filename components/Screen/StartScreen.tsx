@@ -39,7 +39,7 @@ const StartScreen = ({ navigation }: any) => {
     async function playSound(){
         try {
             let soundObject = new Audio.Sound();
-            await soundObject.loadAsync(require('../assets/sounds/electronic-sound.mp3'))
+            await soundObject.loadAsync(require('../../assets/sounds/electronic-sound.mp3'))
             await soundObject.playAsync();   
         }
         catch (error) {

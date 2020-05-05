@@ -3,26 +3,26 @@ import { StyleSheet, View, Text, Modal } from 'react-native';
 import { Icon } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import IntervalModal from '../components/IntervalModal';
+import SurfaceModal from '../Modal/SurfaceModal';
 
-import EditButton from '../elements/EditButton';
+import EditButton from '../../elements/EditButton';
 
-import { updateInterval } from '../database/UpdateInterval';
+import { updateSurface } from '../../database/Update/UpdateSurface';
 
 type Props = {
-    currentInterval: any
+    currentSurface: any
 }
 
-const IntervalSetting = (props: Props) => {
-
+const SurfaceSetting = (props: Props) => {
+    
     const [modalVisible, setModalVisible] = useState(false)
-    const [interval, setInterval] = useState<any>(null)
+    const [surface, setSurface] = useState<any>(null)
 
-    const { currentInterval } = props
+    const { currentSurface } = props
 
     const onPressDecision = () => {
         setModalVisible(!modalVisible)
-        updateInterval(interval)
+        updateSurface(surface)
     }
 
     const onPressBack = () => {
@@ -33,22 +33,22 @@ const IntervalSetting = (props: Props) => {
         <View style={styles.container}>
             <View>
                 <Text style={styles.item}>
-                    表示間隔
+                    面数
                 </Text>
             </View> 
             <View style={styles.valueContainer}>
                 <Text style={styles.value}>
-                    {currentInterval}
+                    {currentSurface}
                 </Text>
                 <Icon
                   name="arrow-forward"
-                  style={styles.icon}
                   size={wp('7%')}
+                  style={styles.icon}
                 />
                 <Text style={styles.value}>
-                    { interval ? (
+                    { surface ? (
                         <Text>
-                            {interval}
+                            {surface}
                         </Text>
                     ):(
                         <Text style={styles.notEntered}>
@@ -61,7 +61,7 @@ const IntervalSetting = (props: Props) => {
               animationType="slide"
               visible={modalVisible}
             >     
-                <IntervalModal onPressDecision={onPressDecision} onPressBack={onPressBack}  changeValue={setInterval} />
+                <SurfaceModal onPressDecision={onPressDecision} onPressBack={onPressBack} changeValue={setSurface} />
             </Modal>
             <View style={styles.editButton}>
                 <EditButton onPress={() => setModalVisible(true)} />
@@ -71,7 +71,7 @@ const IntervalSetting = (props: Props) => {
 
 }
 
-export default IntervalSetting
+export default SurfaceSetting
 
 const styles = StyleSheet.create({
     container: {
@@ -84,15 +84,13 @@ const styles = StyleSheet.create({
     },
     valueContainer: {
         flexDirection: 'row',
-        marginLeft: wp('2%'),
+        marginLeft: wp('3%'),
     },
     icon: {
         margin: wp('5%'),
-        marginLeft: wp('0.2%'),
     },
     value: {
         margin: wp('5%'),
-        marginLeft: wp('0.2%'),
         fontSize: wp('5%')
     },
     notEntered: {

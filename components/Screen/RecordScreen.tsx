@@ -4,9 +4,9 @@ import { Header, Divider } from 'react-native-elements';
 import firebase from 'firebase';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import RecordList from './RecordList';
+import RecordList from '../RecordList';
 
-import BackArrow from '../elements/BackArrow';
+import BackArrow from '../../elements/BackArrow';
 
 const RecordScreen = ({ navigation }: any) => {
 

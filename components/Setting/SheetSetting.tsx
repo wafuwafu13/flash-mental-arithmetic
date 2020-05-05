@@ -3,11 +3,11 @@ import { StyleSheet, View, Text, Modal } from 'react-native';
 import { Icon } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import SheetModal from '../components/SheetModal';
+import SheetModal from '../Modal/SheetModal';
 
-import EditButton from '../elements/EditButton';
+import EditButton from '../../elements/EditButton';
 
-import { updateSheet } from '../database/UpdateSheet';
+import { updateSheet } from '../../database/Update/UpdateSheet';
 
 type Props = {
     currentSheet: any
