@@ -13,11 +13,17 @@ const RecordList = (props: Props) => {
    // const renderList: any = []
 
     const renderRecord = ({item}: any): JSX.Element => {
-        console.log(item)
+
+        const timestamp = item.date
+        const date = timestamp.toDate().toISOString().split('T')[0].split('-')
+        const month = (date[1][0] == '0') ? date[1][1] : date[1]
+        const day = (date[2][0] == '0') ? date[2][1] : date[2]
+        const renderDate = month + '/' + day
+
         return(
             <View>
                 <View style={styles.item}>
-                    <Text style={styles.itemTitle}>4/6</Text>
+                    <Text style={styles.itemTitle}>{renderDate}</Text>
                     <Text style={styles.itemTitle}>{item.surface}</Text>
                     <Text style={styles.itemTitle}>{item.sheet}</Text>
                     <Text style={styles.itemTitle}>{item.digit}</Text>
@@ -52,6 +58,8 @@ const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
         justifyContent: 'center',
+        marginTop: wp('2%'),
+        marginBottom: wp('2%')
     },
     itemTitle: {
         flex: 1,
