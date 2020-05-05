@@ -14,14 +14,20 @@ const HomeButton = (props: Props) => {
 
     const blue = '#62D0E9'
     const red = '#FF4FC3'
+    const darkBlue = '#4594A6'
+    const darkRed = '#B73C8D'
     
     let bgColor = (type === 'start') ? blue : red
+    let overBgColor = (type == 'start') ? darkBlue : darkRed
 
     return(
         <View style={styles.container}>
             <TouchableHighlight 
               style={[styles.button, {backgroundColor: bgColor}]}
-              onPress={onPress}>
+              onPress={onPress}
+              underlayColor={overBgColor}
+              activeOpacity={0.7}
+            >
                 <Text style={styles.buttonText}>
                     { props.children }
                 </Text>

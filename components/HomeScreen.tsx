@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import HomeTitle from '../elements/HomeTitle';
@@ -14,10 +14,10 @@ const HomeScreen = ({ navigation }: any) => {
             </View>
             <View style={styles.button}>  
                 <HomeButton type='start' onPress={() => navigation.navigate('Start')}>
-                    スタート
+                    <Text style={styles.buttonText}>スタート</Text>
                 </HomeButton>
                 <HomeButton type='setting' onPress={() => navigation.navigate('Setting')}>
-                    設 定
+                    <Text style={styles.buttonText}>設 定</Text>
                 </HomeButton>
             </View>
         </View>
@@ -38,5 +38,8 @@ const styles = StyleSheet.create({
     },
     button: {
         flex: 1
+    },
+    buttonText: {
+        fontSize: wp('5%')
     }
 })

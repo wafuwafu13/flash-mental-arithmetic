@@ -36,6 +36,7 @@ firebase.auth().signInAnonymously().catch(function(error) {
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     const uid = user.uid;
+    console.log(uid)
     initializeSurface(uid)
     initializeSheet(uid)
     initializeDigit(uid)

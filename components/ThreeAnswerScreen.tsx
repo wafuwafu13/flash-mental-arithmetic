@@ -80,6 +80,8 @@ const ThreeAnswerScreen = (props: Props) => {
                 <TouchableHighlight
                   onPress={onPress}
                   style={styles.button}
+                  activeOpacity={0.7}
+                  underlayColor={'#B73C8D'}
                 >
                     <Text style={styles.buttonText}>
                         回答
@@ -94,16 +96,20 @@ export default ThreeAnswerScreen
 
 const styles = StyleSheet.create({
     container: {
-        bottom: wp('30%'),
-        alignItems: 'center'
+        flex: 1,
+        marginTop: wp('10%'),
+        alignItems: 'center',
+        backgroundColor: '#1B1A1A'
     },
     text: {
         fontSize: wp('5%'),
-        marginBottom: hp('5%')
+        marginBottom: hp('5%'),
+        color: '#fff'
     },
     answerText: {
         fontSize: wp('4%'),
-        marginBottom: hp('1%')
+        marginBottom: hp('1%'),
+        color: '#fff'
     },
     input: {
         backgroundColor: '#eee',
