@@ -51,6 +51,8 @@ const DigitModal = (props: Props) => {
                 <TouchableHighlight
                   onPress={onPressDecision}
                   style={styles.button}
+                  activeOpacity={0.7}
+                  underlayColor={'#492B9D'}
                 >
                     <Text style={styles.buttonText}>
                         決 定
@@ -66,8 +68,7 @@ export default DigitModal;
 const styles = StyleSheet.create({
     modal: {
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#FFFBFB',
+        justifyContent: 'center'
     },
     text: {
         marginTop: wp('10%'),

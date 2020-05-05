@@ -35,6 +35,8 @@ const AnswerScreen = (props: Props) => {
                 <TouchableHighlight
                   onPress={onPress}
                   style={styles.button}
+                  activeOpacity={0.7}
+                  underlayColor={'#B73C8D'}
                 >
                     <Text style={styles.buttonText}>
                         回答
@@ -51,11 +53,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#1B1A1A'
     },
     text: {
         fontSize: wp('5%'),
-        marginBottom: hp('5%')
+        marginBottom: hp('5%'),
+        color: '#fff'
     },
     input: {
         backgroundColor: '#eee',
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
         marginBottom: hp('7%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',
-        padding: wp('1%')
+        padding: wp('1%'),
     },
     button: {
         width: wp('40%'),
@@ -72,7 +76,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 4,
-        backgroundColor: '#FF4FC3'
+        backgroundColor: '#FF4FC3',
     },
     buttonText: {
         color: '#fff',

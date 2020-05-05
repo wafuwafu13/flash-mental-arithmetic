@@ -185,27 +185,27 @@ const StartScreen = ({ navigation }: any) => {
                     { surface == 2 && (
                         <View>
                             <Text style={styles.number}>{number}</Text>
-                            <Divider />
+                            <Divider style={{ backgroundColor: '#fff' }} />
                             <Text style={styles.number}>{number2}</Text>
                         </View>
                     )}
                     { surface == 3 && (
                         <View>
                             <Text style={styles.number}>{number}</Text>
-                            <Divider />
+                            <Divider style={{ backgroundColor: '#fff' }} />
                             <Text style={styles.number}>{number2}</Text>
-                            <Divider />
+                            <Divider style={{ backgroundColor: '#fff' }} />
                             <Text style={styles.number}>{number3}</Text>
                         </View>
                     )}
                     { surface == 4 && (
                         <View>
                             <Text style={styles.number}>{number}</Text>
-                            <Divider />
+                            <Divider style={{ backgroundColor: '#fff' }} />
                             <Text style={styles.number}>{number2}</Text>
-                            <Divider />
+                            <Divider style={{ backgroundColor: '#fff' }} />
                             <Text style={styles.number}>{number3}</Text>
-                            <Divider />
+                            <Divider style={{ backgroundColor: '#fff' }} />
                             <Text style={styles.number}>{number4}</Text>
                         </View>
                     )}
@@ -282,10 +282,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#1B1A1A'
     },
     number: {
         fontSize: wp('13%'),
-        margin: wp('5%')
+        margin: wp('5%'),
+        color: '#fff'
     }
 })

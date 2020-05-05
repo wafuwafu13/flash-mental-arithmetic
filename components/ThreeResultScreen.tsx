@@ -46,6 +46,8 @@ const ResultScreen = ({ navigation, route }: any) => {
             <TouchableHighlight
               onPress={() => navigation.navigate('Home')}
               style={styles.button}
+              underlayColor={'#492B9D'}
+              activeOpacity={0.7}
             >
                 <Text style={styles.buttonText}>
                     ホームへ
