@@ -117,13 +117,13 @@ export default FourAnswerScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: wp('13%'),
+        marginTop: wp('5%'),
         alignItems: 'center',
         backgroundColor: '#1B1A1A'
     },
     text: {
         fontSize: wp('5%'),
-        marginBottom: hp('5%'),
+        marginBottom: hp('2%'),
         color: '#fff'
     },
     answerText: {
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#eee',
         height: hp('7%'),
         width: wp('20%'),
-        marginBottom: hp('2%'),
+        marginBottom: hp('1%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',
         padding: wp('1%')
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     button: {
         width: wp('40%'),
         height: hp('5%'),
-        marginTop: hp('2%'),
+        marginTop: hp('1%'),
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 4,
