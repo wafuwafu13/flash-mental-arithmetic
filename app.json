@@ -28,6 +28,7 @@
       "bundleIdentifier": "jp.wafuwafu.flash"
     },
     "android": {
+      "versionCode": 2,
       "package": "jp.wafuwafu.flash"
     }
   }
