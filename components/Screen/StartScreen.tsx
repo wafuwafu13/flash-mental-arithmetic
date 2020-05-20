@@ -10,6 +10,8 @@ import TwoAnswerScreen from './TwoAnswerScreen';
 import ThreeAnswerScreen from './ThreeAnswerScreen';
 import FourAnswerScreen from './FourAnswerScreen';
 
+import { randomNumber } from '../../elements/RandomNumber';
+
 const StartScreen = ({ navigation }: any) => {
 
     const [surface, setSurface] = useState<any>(null)
@@ -61,10 +63,12 @@ const StartScreen = ({ navigation }: any) => {
 
         if (digit == 1) {
             for (var i = 0; i < sheet; i++) {
-                let oneDigitRandomNumber = Math.floor(Math.random() * 9) + 1
-                let oneDigitRandomNumber2 = Math.floor(Math.random() * 9) + 1
-                let oneDigitRandomNumber3 = Math.floor(Math.random() * 9) + 1
-                let oneDigitRandomNumber4 = Math.floor(Math.random() * 9) + 1
+                let min: number = 1
+                let max: number = 9
+                let oneDigitRandomNumber = randomNumber(min, max)
+                let oneDigitRandomNumber2 = randomNumber(min, max)
+                let oneDigitRandomNumber3 = randomNumber(min, max)
+                let oneDigitRandomNumber4 = randomNumber(min, max)
                 setNumber(oneDigitRandomNumber)
                 setNumber2(oneDigitRandomNumber2)
                 setNumber3(oneDigitRandomNumber3)
@@ -80,10 +84,10 @@ const StartScreen = ({ navigation }: any) => {
             for (var i = 0; i < sheet; i++) {
                 let min = 10
                 let max = 99
-                let twoDigitRandomNumber = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let twoDigitRandomNumber2 = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let twoDigitRandomNumber3 = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let twoDigitRandomNumber4 = Math.floor( Math.random() * (max + 1 - min) ) + min
+                let twoDigitRandomNumber = randomNumber(min, max)
+                let twoDigitRandomNumber2 = randomNumber(min, max)
+                let twoDigitRandomNumber3 = randomNumber(min, max)
+                let twoDigitRandomNumber4 = randomNumber(min, max)
                 setNumber(twoDigitRandomNumber)
                 setNumber2(twoDigitRandomNumber2)
                 setNumber3(twoDigitRandomNumber3)
@@ -97,12 +101,12 @@ const StartScreen = ({ navigation }: any) => {
             }
         } else if (digit == 3) {
             for (var i = 0; i < sheet; i++) {
-                let min = 100
-                let max = 999
-                let threeDigitRandomNumber = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let threeDigitRandomNumber2 =  Math.floor( Math.random() * (max + 1 - min) ) + min
-                let threeDigitRandomNumber3 = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let threeDigitRandomNumber4 = Math.floor( Math.random() * (max + 1 - min) ) + min
+                let min: number = 100
+                let max: number = 999
+                let threeDigitRandomNumber = randomNumber(min, max)
+                let threeDigitRandomNumber2 =  randomNumber(min, max)
+                let threeDigitRandomNumber3 = randomNumber(min, max)
+                let threeDigitRandomNumber4 = randomNumber(min, max)
                 setNumber(threeDigitRandomNumber)
                 setNumber2(threeDigitRandomNumber2)
                 setNumber3(threeDigitRandomNumber3)
@@ -116,12 +120,12 @@ const StartScreen = ({ navigation }: any) => {
             }
         } else if (digit == 4) {
             for (var i = 0; i < sheet; i++) {
-                let min = 1000
-                let max = 9999
-                let fourDigitRandomNumber = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let fourDigitRandomNumber2 =  Math.floor( Math.random() * (max + 1 - min) ) + min
-                let fourDigitRandomNumber3 = Math.floor( Math.random() * (max + 1 - min) ) + min
-                let fourDigitRandomNumber4 =  Math.floor( Math.random() * (max + 1 - min) ) + min
+                let min: number = 1000
+                let max: number = 9999
+                let fourDigitRandomNumber = randomNumber(min, max)
+                let fourDigitRandomNumber2 =  randomNumber(min, max)
+                let fourDigitRandomNumber3 = randomNumber(min, max)
+                let fourDigitRandomNumber4 =  randomNumber(min, max)
                 setNumber(fourDigitRandomNumber)
                 setNumber2(fourDigitRandomNumber2)
                 setNumber3(fourDigitRandomNumber3)
