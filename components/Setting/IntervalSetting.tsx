@@ -10,22 +10,22 @@ import EditButton from '../../elements/EditButton';
 import { updateInterval } from '../../database/Update/UpdateInterval';
 
 type Props = {
-    currentInterval: any
+    currentInterval: number | undefined
 }
 
-const IntervalSetting = (props: Props) => {
+const IntervalSetting: React.FC<Props> = props => {
 
-    const [modalVisible, setModalVisible] = useState(false)
-    const [interval, setInterval] = useState<any>(null)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [interval, setInterval] = useState<number | undefined>()
 
     const { currentInterval } = props
 
-    const onPressDecision = () => {
+    const onPressDecision = (): void => {
         setModalVisible(!modalVisible)
-        updateInterval(interval)
+        updateInterval(interval!)
     }
 
-    const onPressBack = () => {
+    const onPressBack = (): void => {
         setModalVisible(!modalVisible)
     }
 

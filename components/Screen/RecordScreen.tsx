@@ -8,7 +8,19 @@ import RecordList from '../RecordList';
 
 import BackArrow from '../../elements/BackArrow';
 
-const RecordScreen = ({ navigation }: any) => {
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type RecordScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Record'
+>;
+
+type Props = {
+    navigation: RecordScreenNavigationProp;
+}
+
+const RecordScreen: React.FC<Props> = ({ navigation }) => {
 
     const [recordList, setRecordList] = useState<Array<number | string>>([])
 

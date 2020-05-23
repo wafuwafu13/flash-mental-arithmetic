@@ -12,27 +12,39 @@ import FourAnswerScreen from './FourAnswerScreen';
 
 import { randomNumber } from '../../elements/RandomNumber';
 
-const StartScreen = ({ navigation }: any) => {
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-    const [surface, setSurface] = useState<any>(null)
-    const [sheet, setSheet] = useState<any>(null)
-    const [digit, setDigit] = useState<any>(null)
-    const [interval, setInterval] = useState<any>(null)
+type StartScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Start'
+>;
 
-    const [number, setNumber] = useState<any>(null);
-    const [number2, setNumber2] = useState<any>(null);
-    const [number3, setNumber3] = useState<any>(null);
-    const [number4, setNumber4] = useState<any>(null);
+type Props = {
+    navigation: StartScreenNavigationProp;
+}
 
-    const [correctAnswer, setCorrectAnswer] = useState<any>()
-    const [correctAnswer2, setCorrectAnswer2] = useState<any>()
-    const [correctAnswer3, setCorrectAnswer3] = useState<any>()
-    const [correctAnswer4, setCorrectAnswer4] = useState<any>()
+const StartScreen: React.FC<Props> = ({ navigation }) => {
 
-    const [answer, setAnswer] = useState<any>()
-    const [answer2, setAnswer2] = useState<any>()
-    const [answer3, setAnswer3] = useState<any>()
-    const [answer4, setAnswer4] = useState<any>()
+    const [surface, setSurface] = useState<number | undefined>()
+    const [sheet, setSheet] = useState<number | undefined>()
+    const [digit, setDigit] = useState<number | undefined>()
+    const [interval, setInterval] = useState<number | undefined>()
+
+    const [number, setNumber] = useState<number | undefined>();
+    const [number2, setNumber2] = useState<number | undefined>();
+    const [number3, setNumber3] = useState<number | undefined>();
+    const [number4, setNumber4] = useState<number | undefined>();
+
+    const [correctAnswer, setCorrectAnswer] = useState<number | undefined>()
+    const [correctAnswer2, setCorrectAnswer2] = useState<number | undefined>()
+    const [correctAnswer3, setCorrectAnswer3] = useState<number | undefined>()
+    const [correctAnswer4, setCorrectAnswer4] = useState<number | undefined>()
+
+    const [answer, setAnswer] = useState<number | undefined>()
+    const [answer2, setAnswer2] = useState<number | undefined>()
+    const [answer3, setAnswer3] = useState<number | undefined>()
+    const [answer4, setAnswer4] = useState<number | undefined>()
 
     const [isend, setIsEnd] = useState<boolean>(false);
 
@@ -230,12 +242,12 @@ const StartScreen = ({ navigation }: any) => {
                 { surface == 1 && (
                     <AnswerScreen 
                       onPress={() => navigation.navigate('Result', 
-                        { answer: answer, 
-                          correctAnswer: correctAnswer,
+                        { answer: answer!, 
+                          correctAnswer: correctAnswer!,
                           surface: surface,
-                          sheet: sheet,
-                          digit: digit,
-                          interval: interval
+                          sheet: sheet!,
+                          digit: digit!,
+                          interval: interval!
                         })} 
                       setAnswer={setAnswer}
                     />
@@ -243,14 +255,14 @@ const StartScreen = ({ navigation }: any) => {
                 { surface == 2 && (
                     <TwoAnswerScreen 
                       onPress={() => navigation.navigate('TwoResult', 
-                        { answer: answer, 
-                          correctAnswer: correctAnswer, 
-                          answer2: answer2, 
-                          correctAnswer2: correctAnswer2,
+                        { answer: answer!, 
+                          correctAnswer: correctAnswer!, 
+                          answer2: answer2!, 
+                          correctAnswer2: correctAnswer2!,
                           surface: surface,
-                          sheet: sheet,
-                          digit: digit,
-                          interval: interval
+                          sheet: sheet!,
+                          digit: digit!,
+                          interval: interval!
                         }
                       )} 
                       setAnswer={setAnswer}
@@ -260,16 +272,16 @@ const StartScreen = ({ navigation }: any) => {
                 { surface == 3 && (
                     <ThreeAnswerScreen 
                       onPress={() => navigation.navigate('ThreeResult',
-                        { answer: answer, 
-                          correctAnswer: correctAnswer, 
-                          answer2: answer2, 
-                          correctAnswer2: correctAnswer2,
-                          answer3: answer3,
-                          correctAnswer3: correctAnswer3,
+                        { answer: answer!, 
+                          correctAnswer: correctAnswer!, 
+                          answer2: answer2!, 
+                          correctAnswer2: correctAnswer2!,
+                          answer3: answer3!,
+                          correctAnswer3: correctAnswer3!,
                           surface: surface,
-                          sheet: sheet,
-                          digit: digit,
-                          interval: interval
+                          sheet: sheet!,
+                          digit: digit!,
+                          interval: interval!
                         }
                       )} 
                       setAnswer={setAnswer}
@@ -280,18 +292,18 @@ const StartScreen = ({ navigation }: any) => {
                 { surface == 4 && (
                     <FourAnswerScreen 
                       onPress={() => navigation.navigate('FourResult',
-                        { answer: answer, 
-                          correctAnswer: correctAnswer, 
-                          answer2: answer2, 
-                          correctAnswer2: correctAnswer2,
-                          answer3: answer3,
-                          correctAnswer3: correctAnswer3,
-                          answer4: answer4,
-                          correctAnswer4: correctAnswer4,
+                        { answer: answer!, 
+                          correctAnswer: correctAnswer!, 
+                          answer2: answer2!, 
+                          correctAnswer2: correctAnswer2!,
+                          answer3: answer3!,
+                          correctAnswer3: correctAnswer3!,
+                          answer4: answer4!,
+                          correctAnswer4: correctAnswer4!,
                           surface: surface,
-                          sheet: sheet,
-                          digit: digit,
-                          interval: interval
+                          sheet: sheet!,
+                          digit: digit!,
+                          interval: interval!
                         }
                       )} 
                       setAnswer={setAnswer}

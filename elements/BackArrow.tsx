@@ -7,11 +7,11 @@ type Props = {
     type: string
 }
 
-const BackArrow = (props: Props) => {
+const BackArrow: React.FC<Props> = props => {
 
     const { onPress, type } = props
 
-    const underlayColor = (type == 'setting') ? '#FF4FC3' : '#7244F4'
+    const underlayColor: string = (type == 'setting') ? '#FF4FC3' : '#7244F4'
 
     return(
         <TouchableHighlight

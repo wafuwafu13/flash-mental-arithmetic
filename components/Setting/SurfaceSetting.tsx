@@ -10,19 +10,19 @@ import EditButton from '../../elements/EditButton';
 import { updateSurface } from '../../database/Update/UpdateSurface';
 
 type Props = {
-    currentSurface: any
+    currentSurface: number | undefined
 }
 
-const SurfaceSetting = (props: Props) => {
+const SurfaceSetting: React.FC<Props> = props => {
     
-    const [modalVisible, setModalVisible] = useState(false)
-    const [surface, setSurface] = useState<any>(null)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [surface, setSurface] = useState<number | undefined>()
 
     const { currentSurface } = props
 
     const onPressDecision = () => {
         setModalVisible(!modalVisible)
-        updateSurface(surface)
+        updateSurface(surface!)
     }
 
     const onPressBack = () => {

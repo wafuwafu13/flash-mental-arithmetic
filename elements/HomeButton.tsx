@@ -12,19 +12,19 @@ const HomeButton = (props: Props) => {
 
     const { type, onPress } = props
 
-    const blue = '#05BEE7'
-    const red = '#FF4FC3'
-    const purple = '#7244F4'
-    const darkBlue = '#04728A'
-    const darkRed = '#B73C8D'
-    const darkPurple = "#492B9D"
+    const blue: string = '#05BEE7'
+    const red: string = '#FF4FC3'
+    const purple: string = '#7244F4'
+    const darkBlue: string = '#04728A'
+    const darkRed: string = '#B73C8D'
+    const darkPurple: string = "#492B9D"
     
-    const bgColor: any = {
+    const bgColor: { [s: string]: string } = {
         'start': blue,
         'setting': red,
         'record': purple
     }
-    const overBgColor: any = {
+    const overBgColor: { [s: string]: string } = {
         'start': darkBlue,
         'setting': darkRed,
         'record': darkPurple

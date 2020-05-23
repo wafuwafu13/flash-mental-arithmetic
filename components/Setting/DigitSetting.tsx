@@ -10,22 +10,22 @@ import EditButton from '../../elements/EditButton';
 import { updateDigit } from '../../database/Update/UpdateDigit';
 
 type Props = {
-    currentDigit: any
+    currentDigit: number | undefined
 }
 
-const DigitSetting = (props: Props) => {
+const DigitSetting: React.FC<Props> = props => {
     
-    const [modalVisible, setModalVisible] = useState(false)
-    const [digit, setDigit] = useState<any>(null)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [digit, setDigit] = useState<number | undefined>()
 
     const { currentDigit } = props
 
-    const onPressDecision = () => {
+    const onPressDecision = (): void => {
         setModalVisible(!modalVisible)
-        updateDigit(digit)
+        updateDigit(digit!)
     }
 
-    const onPressBack = () => {
+    const onPressBack = (): void => {
         setModalVisible(!modalVisible)
     }
 

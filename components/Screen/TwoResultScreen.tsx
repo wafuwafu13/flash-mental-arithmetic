@@ -5,7 +5,23 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 import { addRecord } from '../../database/AddRecord';
 
-const TwoResultScreen = ({ navigation, route }: any) => {
+import { RootStackParamList } from '../../App';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type TwoResultScreenRouteProp = RouteProp<RootStackParamList, 'TwoResult'>;
+
+type TwoResultScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'TwoResult'
+>;
+
+type Props = {
+  route: TwoResultScreenRouteProp;
+  navigation: TwoResultScreenNavigationProp;
+}
+
+const TwoResultScreen: React.FC<Props> = ({ route, navigation }) => {
 
 
     const result: string = (route.params.answer == route.params.correctAnswer && 

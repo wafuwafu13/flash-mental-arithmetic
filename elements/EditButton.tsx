@@ -7,7 +7,7 @@ type Props = {
     onPress: any
 }
 
-const EditButton = (props: Props) => {
+const EditButton: React.FC<Props> = props => {
 
     const { onPress } = props
 
