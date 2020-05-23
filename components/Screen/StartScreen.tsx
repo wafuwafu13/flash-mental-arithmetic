@@ -50,7 +50,7 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
 
     let settingList: number[] = [];
 
-    async function playSound(){
+    async function playSound(): Promise<void>{
         try {
             let soundObject = new Audio.Sound();
             await soundObject.loadAsync(require('../../assets/sounds/electronic-sound.mp3'))
@@ -61,11 +61,11 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
         }
     }
 
-    function sleep(milliseconds: number) {
+    function sleep(milliseconds: number): Promise<typeof setTimeout> {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
 
-    async function playStart(sheet: number, digit: number, interval: number) {
+    async function playStart(sheet: number, digit: number, interval: number): Promise<void> {
         let correctAnswer: number = 0
         let correctAnswer2: number = 0
         let correctAnswer3: number = 0
@@ -94,8 +94,8 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
             }
         } else if (digit == 2) {
             for (var i = 0; i < sheet; i++) {
-                let min = 10
-                let max = 99
+                let min: number = 10
+                let max: number = 99
                 let twoDigitRandomNumber = randomNumber(min, max)
                 let twoDigitRandomNumber2 = randomNumber(min, max)
                 let twoDigitRandomNumber3 = randomNumber(min, max)
@@ -164,7 +164,7 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
         setIsEnd(true)
     }
 
-    async function getSetting(){
+    async function getSetting(): Promise<number[]> {
         const db = firebase.firestore()
         const auth: any= firebase.auth()
         let docRef = db.collection(auth.currentUser.uid)
