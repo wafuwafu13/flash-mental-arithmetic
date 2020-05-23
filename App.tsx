@@ -13,12 +13,6 @@ import ThreeResultScreen from './components/Screen/ThreeResultScreen';
 import FourResultScreen from './components/Screen/FourResultScreen';
 import RecordScreen from './components/Screen/RecordScreen';
 
-import { initializeSurface } from './database/Initialize/InitializeSurface';
-import { initializeSheet } from './database/Initialize/InitializeSheet';
-import { initializeDigit } from './database/Initialize/InitializeDigit';
-import { initializeInterval } from './database/Initialize/InitializeInterval';
-import { initializeRecord } from './database/Initialize/InitializeRecord';
-
 require("firebase/firestore");
 
 const firebaseConfig = {
@@ -35,19 +29,6 @@ firebase.auth().signInAnonymously().catch(function(error) {
   console.log('siginInError:' + error.code)
 });
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    const uid = user.uid;
-    console.log(uid)
-    initializeSurface(uid)
-    initializeSheet(uid)
-    initializeDigit(uid)
-    initializeInterval(uid)
-    initializeRecord(uid)
-  } else {
-    console.log('error...')
-  }
-});
 
 export type RootStackParamList = {
   Home: undefined
