@@ -183,16 +183,16 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
     useEffect(() => {
         getSetting().then((settingList) => {
 
-            let surface: number = settingList[4]
+            let surface: number = settingList[4] || 1
             setSurface(surface)
 
-            let sheet: number = settingList[3]
+            let sheet: number = settingList[3] || 10
             setSheet(sheet)
 
-            let digit: number = settingList[0]
+            let digit: number = settingList[0] || 1
             setDigit(digit)
 
-            let interval: number = settingList[1]
+            let interval: number = settingList[1] || 1000
             setInterval(interval)
 
             console.log(surface + '面')

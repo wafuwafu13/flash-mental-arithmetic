@@ -38,10 +38,10 @@ const SettingScreen: React.FC<Props> = ({ navigation }) => {
         settings.forEach((doc) => {
             settingList.push(doc.data().value) // [digit, interval, record, sheet, surface]
         })
-        setCurrentSurface(settingList[4])
-        setCurrentSheet(settingList[3])
-        setCurrentDigit(settingList[0])
-        setCurrentInterval(settingList[1])
+        setCurrentSurface(settingList[4] || 1)
+        setCurrentSheet(settingList[3] || 10)
+        setCurrentDigit(settingList[0] || 1)
+        setCurrentInterval(settingList[1] || 1000)
     })
     .catch((error) => {
         console.log(error)
