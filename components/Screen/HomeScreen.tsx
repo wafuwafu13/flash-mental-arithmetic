@@ -25,7 +25,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
                 <HomeTitle />
             </View>
             <View style={styles.button}>  
-                <HomeButton type='start' onPress={() => navigation.navigate('Setting')}>
+                <HomeButton type='start' onPress={() => navigation.navigate('Start')}>
                     <Text style={styles.buttonText}>スタート</Text>
                 </HomeButton>
                 <HomeButton type='setting' onPress={() => navigation.navigate('Setting')}>

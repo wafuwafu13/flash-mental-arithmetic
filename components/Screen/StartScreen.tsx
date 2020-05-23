@@ -170,7 +170,8 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
         let docRef = db.collection(auth.currentUser.uid)
         await docRef.get().then((settings) => {
             settings.forEach((doc) => {
-                settingList.push(doc.data().value)
+                console.log(doc.data())
+                settingList.push(doc.data().value) // [digit, interval, record, sheet, surface]
             })
         })
         .catch((error) => {
