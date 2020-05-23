@@ -5,7 +5,23 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 import { addRecord } from '../../database/AddRecord';
 
-const ResultScreen = ({ navigation, route }: any) => {
+import { RootStackParamList } from '../../App';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type FourResultScreenRouteProp = RouteProp<RootStackParamList, 'FourResult'>;
+
+type FourResultScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'FourResult'
+>;
+
+type Props = {
+  route: FourResultScreenRouteProp;
+  navigation: FourResultScreenNavigationProp;
+}
+
+const ResultScreen: React.FC<Props> = ({ route, navigation }) => {
 
     const result: string = (route.params.answer == route.params.correctAnswer && 
                             route.params.answer2 == route.params.correctAnswer2 &&

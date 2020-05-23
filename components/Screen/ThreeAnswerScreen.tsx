@@ -4,12 +4,12 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 type Props = {
     onPress: any
-    setAnswer: any
-    setAnswer2: any
-    setAnswer3: any
+    setAnswer: React.Dispatch<React.SetStateAction<number | undefined>>
+    setAnswer2: React.Dispatch<React.SetStateAction<number | undefined>>
+    setAnswer3: React.Dispatch<React.SetStateAction<number | undefined>>
 }
 
-const ThreeAnswerScreen = (props: Props) => {
+const ThreeAnswerScreen: React.FC<Props> = props => {
 
     const { onPress, setAnswer, setAnswer2, setAnswer3 } = props
 
@@ -17,28 +17,31 @@ const ThreeAnswerScreen = (props: Props) => {
     const [isAnswered2, setIsAnswered2] = useState<boolean>(false)
     const [isAnswered3, setIsAnswered3] = useState<boolean>(false)
 
-    const handleAnswer = (input_number: string) => {
-        if (input_number) {
+    const handleAnswer = (input_number: string): void => {
+        const number: number = Number(input_number)
+        if (number) {
             setIsAnswered(true)
-            setAnswer(input_number)
+            setAnswer(number)
         } else {
             setIsAnswered(false)
         }
     }
 
-    const handleAnswer2 = (input_number: string) => {
-        if (input_number) {
+    const handleAnswer2 = (input_number: string): void => {
+        const number: number = Number(input_number)
+        if (number) {
             setIsAnswered2(true)
-            setAnswer2(input_number)
+            setAnswer2(number)
         } else {
             setIsAnswered2(false)
         }
     }
 
-    const handleAnswer3 = (input_number: string) => {
-        if (input_number) {
+    const handleAnswer3 = (input_number: string): void => {
+        const number: number = Number(input_number)
+        if (number) {
             setIsAnswered3(true)
-            setAnswer3(input_number)
+            setAnswer3(number)
         } else {
             setIsAnswered3(false)
         }

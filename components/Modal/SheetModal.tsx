@@ -7,11 +7,11 @@ import BackArrow from '../../elements/BackArrow';
 
 type Props = {
     onPressDecision: any
-    onPressBack: any
-    changeValue: any
+    onPressBack: React.Dispatch<React.SetStateAction<boolean>>
+    changeValue: React.Dispatch<React.SetStateAction<number | undefined>>
 }
 
-const SheetModal = (props: Props) => {
+const SheetModal: React.FC<Props> = props => {
 
     const { onPressDecision, onPressBack, changeValue } = props
 
@@ -23,13 +23,13 @@ const SheetModal = (props: Props) => {
     } 
 
     const handleSheet = (number: string) => {
-        const input_number = Number(number)
-        const index = validateList.findIndex(number => number == input_number)
+        const input_number: number = Number(number)
+        const index: number = validateList.findIndex(number => number == input_number)
         if (index === -1) {
             setIsValidated(false)
         } else {
             setIsValidated(true)
-            changeValue(number)
+            changeValue(input_number)
         }
     }
 

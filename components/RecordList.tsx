@@ -7,7 +7,7 @@ type Props = {
     recordList: Array<number | string>
 }
 
-const RecordList = (props: Props) => {
+const RecordList: React.FC<Props> = props => {
 
     const { recordList } = props
    // const renderList: any = []
@@ -15,10 +15,10 @@ const RecordList = (props: Props) => {
     const renderRecord = ({item}: any): JSX.Element => {
 
         const timestamp = item.date
-        const date = timestamp.toDate().toISOString().split('T')[0].split('-')
-        const month = (date[1][0] == '0') ? date[1][1] : date[1]
-        const day = (date[2][0] == '0') ? date[2][1] : date[2]
-        const renderDate = month + '/' + day
+        const date: string[] = timestamp.toDate().toISOString().split('T')[0].split('-')
+        const month: string = (date[1][0] == '0') ? date[1][1] : date[1]
+        const day: string = (date[2][0] == '0') ? date[2][1] : date[2]
+        const renderDate: string = month + '/' + day
 
         return(
             <View>

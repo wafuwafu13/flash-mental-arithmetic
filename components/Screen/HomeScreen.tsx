@@ -5,7 +5,19 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import HomeTitle from '../../elements/HomeTitle';
 import HomeButton from '../../elements/HomeButton';
 
-const HomeScreen = ({ navigation }: any) => {
+import { RootStackParamList } from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type HomeScreenNavigationProp = StackNavigationProp<
+    RootStackParamList,
+    'Home'
+>;
+
+type Props = {
+    navigation: HomeScreenNavigationProp;
+};
+
+const HomeScreen: React.FC<Props> = ({ navigation }) => {
 
     return(
         <View style={styles.container}>
@@ -13,7 +25,7 @@ const HomeScreen = ({ navigation }: any) => {
                 <HomeTitle />
             </View>
             <View style={styles.button}>  
-                <HomeButton type='start' onPress={() => navigation.navigate('Start')}>
+                <HomeButton type='start' onPress={() => navigation.navigate('Setting')}>
                     <Text style={styles.buttonText}>スタート</Text>
                 </HomeButton>
                 <HomeButton type='setting' onPress={() => navigation.navigate('Setting')}>

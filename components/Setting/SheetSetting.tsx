@@ -10,19 +10,19 @@ import EditButton from '../../elements/EditButton';
 import { updateSheet } from '../../database/Update/UpdateSheet';
 
 type Props = {
-    currentSheet: any
+    currentSheet: number | undefined
 }
 
-const SheetSetting = (props: Props) => {
+const SheetSetting: React.FC<Props> = props => {
 
-    const [modalVisible, setModalVisible] = useState(false)
-    const [sheet, setSheet] = useState<any>(null)
+    const [modalVisible, setModalVisible] = useState<boolean>(false)
+    const [sheet, setSheet] = useState<number | undefined>()
 
     const { currentSheet } = props
 
     const onPressDecision = () => {
         setModalVisible(!modalVisible)
-        updateSheet(sheet)
+        updateSheet(sheet!)
     }
 
     const onPressBack = () => {

@@ -11,15 +11,27 @@ import IntervalSetting from '../Setting/IntervalSetting';
 
 import BackArrow from '../../elements/BackArrow';
 
-const SettingScreen = ({ navigation }: any ) => {
+import {RootStackParamList} from '../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-    const [currentSurface, setCurrentSurface] = useState<any>()
-    const [currentSheet, setCurrentSheet] = useState<any>()
-    const [currentDigit, setCurrentDigit] = useState<any>()
-    const [currentInterval, setCurrentInterval] = useState<any>()
+type NavigationProp = StackNavigationProp<
+    RootStackParamList,
+    'Setting'
+>;
+
+type Props = {
+    navigation: NavigationProp;
+};
+
+const SettingScreen: React.FC<Props> = ({ navigation }) => {
+
+    const [currentSurface, setCurrentSurface] = useState<number | undefined>()
+    const [currentSheet, setCurrentSheet] = useState<number | undefined>()
+    const [currentDigit, setCurrentDigit] = useState<number | undefined>()
+    const [currentInterval, setCurrentInterval] = useState<number | undefined>()
 
     const db = firebase.firestore()
-    const auth: any= firebase.auth()
+    const auth: any = firebase.auth()
     let docRef = db.collection(auth.currentUser.uid)
     docRef.get().then((settings) => {
         let settingList: number[] = []
