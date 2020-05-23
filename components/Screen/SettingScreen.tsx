@@ -36,7 +36,7 @@ const SettingScreen: React.FC<Props> = ({ navigation }) => {
     docRef.get().then((settings) => {
         let settingList: number[] = []
         settings.forEach((doc) => {
-            settingList.push(doc.data().value)
+            settingList.push(doc.data().value) // [digit, interval, record, sheet, surface]
         })
         setCurrentSurface(settingList[4])
         setCurrentSheet(settingList[3])
