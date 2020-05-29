@@ -4,7 +4,7 @@ import { Icon } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 type Props = {
-    onPress: any
+    onPress: () => void
 }
 
 const EditButton: React.FC<Props> = props => {

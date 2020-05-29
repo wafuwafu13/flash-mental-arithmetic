@@ -3,7 +3,7 @@ import { TouchableHighlight } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 type Props = {
-    onPress: any
+    onPress: () => void
     type: string
 }
 

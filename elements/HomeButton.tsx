@@ -4,7 +4,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 type Props = {
     type: string
-    onPress: any
+    onPress: () => void
     children?: React.ReactNode
 }
 
