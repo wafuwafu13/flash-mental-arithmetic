@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-nat
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 type Props = {
-    onPress: any
+    onPress: () => void
     setAnswer: React.Dispatch<React.SetStateAction<number | undefined>>
     setAnswer2: React.Dispatch<React.SetStateAction<number | undefined>>
     setAnswer3: React.Dispatch<React.SetStateAction<number | undefined>>

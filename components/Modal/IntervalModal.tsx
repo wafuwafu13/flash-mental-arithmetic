@@ -6,7 +6,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import BackArrow from '../../elements/BackArrow';
 
 type Props = {
-    onPressDecision: any
+    onPressDecision: () => void
     onPressBack: React.Dispatch<React.SetStateAction<boolean>>
     changeValue: React.Dispatch<React.SetStateAction<number | undefined>>
 }
