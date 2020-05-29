@@ -10,7 +10,6 @@ type Props = {
 const RecordList: React.FC<Props> = props => {
 
     const { recordList } = props
-   // const renderList: any = []
 
     const renderRecord = ({item}: {item: {[key: string]: number | string}}): JSX.Element => {
 
@@ -34,10 +33,6 @@ const RecordList: React.FC<Props> = props => {
             </View>
         )
     }
-
-    // recordList.forEach((record: any) => {
-    //     renderList.push(renderRecord(record))
-    // })
 
     return(
         <ScrollView>
