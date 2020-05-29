@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, FlatList, ScrollView, TimerMixin } from 'react-native';
 import { Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 type Props = {
-    recordList: Array<number | string>
+    recordList: {[key: string]: number | string}[]
 }
 
 const RecordList: React.FC<Props> = props => {
@@ -12,9 +12,9 @@ const RecordList: React.FC<Props> = props => {
     const { recordList } = props
    // const renderList: any = []
 
-    const renderRecord = ({item}: any): JSX.Element => {
+    const renderRecord = ({item}: {item: {[key: string]: number | string}}): JSX.Element => {
 
-        const timestamp = item.date
+        const timestamp: any = item.date
         const date: string[] = timestamp.toDate().toISOString().split('T')[0].split('-')
         const month: string = (date[1][0] == '0') ? date[1][1] : date[1]
         const day: string = (date[2][0] == '0') ? date[2][1] : date[2]

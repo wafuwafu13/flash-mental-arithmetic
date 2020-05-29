@@ -20,17 +20,27 @@ type Props = {
     navigation: RecordScreenNavigationProp;
 }
 
+// type Record = [{
+//     date: any
+//     digit: number
+//     interval: number
+//     key: string
+//     result: string
+//     sheet: number
+//     surface: number
+// }]
+
 const RecordScreen: React.FC<Props> = ({ navigation }) => {
 
-    const [recordList, setRecordList] = useState<Array<number | string>>([])
+    const [recordList, setRecordList] = useState<{[key: string]: number | string}[]>([])
 
     useEffect(() => {
         const auth: any= firebase.auth()
         const db = firebase.firestore()
         let docRef = db.collection(`records/${auth.currentUser.uid}/record`)
         docRef.orderBy('date', 'desc').get().then((records) => {
-            let recordList: number[] = []
-            records.forEach((doc: any) => {
+            let recordList: {[key: string]: number | string}[] = []
+            records.forEach((doc) => {
                 recordList.push({ ...doc.data(), key: doc.id })
             })
             setRecordList(recordList)

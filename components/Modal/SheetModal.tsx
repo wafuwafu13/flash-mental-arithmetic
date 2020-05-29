@@ -7,7 +7,7 @@ import BackArrow from '../../elements/BackArrow';
 
 type Props = {
     onPressDecision: () => void
-    onPressBack: React.Dispatch<React.SetStateAction<boolean>>
+    onPressBack: () => void
     changeValue: React.Dispatch<React.SetStateAction<number | undefined>>
 }
 
