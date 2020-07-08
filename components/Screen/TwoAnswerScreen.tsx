@@ -1,80 +1,74 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 type Props = {
-    onPress: () => void
-    setAnswer: React.Dispatch<React.SetStateAction<number | undefined>>
-    setAnswer2: React.Dispatch<React.SetStateAction<number | undefined>>
-}
+    onPress: () => void;
+    setAnswer: React.Dispatch<React.SetStateAction<number | undefined>>;
+    setAnswer2: React.Dispatch<React.SetStateAction<number | undefined>>;
+};
 
-const TwoAnswerScreen: React.FC<Props> = props => {
+const TwoAnswerScreen: React.FC<Props> = (props) => {
+    const { onPress, setAnswer, setAnswer2 } = props;
 
-    const { onPress, setAnswer, setAnswer2 } = props
-
-    const [isAnswered, setIsAnswered] = useState<boolean>(false)
-    const [isAnswered2, setIsAnswered2] = useState<boolean>(false)
+    const [isAnswered, setIsAnswered] = useState<boolean>(false);
+    const [isAnswered2, setIsAnswered2] = useState<boolean>(false);
 
     const handleAnswer = (input_number: string): void => {
-        const number: number = Number(input_number)
+        const number: number = Number(input_number);
         if (number) {
-            setIsAnswered(true)
-            setAnswer(number)
+            setIsAnswered(true);
+            setAnswer(number);
         } else {
-            setIsAnswered(false)
+            setIsAnswered(false);
         }
-    }
+    };
 
     const handleAnswer2 = (input_number: string): void => {
-        const number: number = Number(input_number)
+        const number: number = Number(input_number);
         if (number) {
-            setIsAnswered2(true)
-            setAnswer2(number)
+            setIsAnswered2(true);
+            setAnswer2(number);
         } else {
-            setIsAnswered2(false)
+            setIsAnswered2(false);
         }
-    }
+    };
 
-    return(
+    return (
         <View style={styles.container}>
-            <Text style={styles.text}>
-                回答を入力してください。
-            </Text>
-            <Text style={styles.answerText}>
-                回答１
-            </Text>
+            <Text style={styles.text}>回答を入力してください。</Text>
+            <Text style={styles.answerText}>回答１</Text>
             <TextInput
-              keyboardType = 'numeric'
-              onChangeText={handleAnswer}
-              style={styles.input}
-              maxLength={6}
+                keyboardType="numeric"
+                onChangeText={handleAnswer}
+                style={styles.input}
+                maxLength={6}
             />
-            <Text style={styles.answerText}>
-                回答２
-            </Text>
+            <Text style={styles.answerText}>回答２</Text>
             <TextInput
-              keyboardType = 'numeric'
-              onChangeText={handleAnswer2}
-              style={styles.input} 
-              maxLength={6}
+                keyboardType="numeric"
+                onChangeText={handleAnswer2}
+                style={styles.input}
+                maxLength={6}
             />
-            { isAnswered && isAnswered2 &&(
+            {isAnswered && isAnswered2 && (
                 <TouchableHighlight
-                  onPress={onPress}
-                  style={styles.button}
-                  activeOpacity={0.7}
-                  underlayColor={'#B73C8D'}
+                    onPress={onPress}
+                    style={styles.button}
+                    activeOpacity={0.7}
+                    underlayColor={'#B73C8D'}
                 >
-                    <Text style={styles.buttonText}>
-                        回答
-                    </Text>
-              </TouchableHighlight>
+                    <Text style={styles.buttonText}>回答</Text>
+                </TouchableHighlight>
             )}
         </View>
-    )
-}
+    );
+};
 
-export default TwoAnswerScreen
+export default TwoAnswerScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -115,4 +109,4 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: wp('5%')
     }
-})
+});
