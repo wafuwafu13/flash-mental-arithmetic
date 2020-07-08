@@ -8,7 +8,7 @@ import {
 import HomeTitle from '../../elements/HomeTitle';
 import HomeButton from '../../elements/HomeButton';
 
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;

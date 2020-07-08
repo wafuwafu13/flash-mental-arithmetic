@@ -6,9 +6,9 @@ import {
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
-import { addRecord } from '../../database/AddRecord';
+import { addRecord } from '../../database/Add/AddRecord';
 
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 

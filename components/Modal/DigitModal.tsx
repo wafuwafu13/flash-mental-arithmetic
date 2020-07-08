@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableHighlight,
-    TextInput,
-    TouchableHighlightProps
-} from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-native';
 import { Header } from 'react-native-elements';
 import {
     widthPercentageToDP as wp,
