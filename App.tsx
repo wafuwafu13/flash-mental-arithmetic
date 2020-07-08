@@ -2,7 +2,7 @@ import React from 'react';
 
 import AppNavigator from './navigation/AppNavigator';
 
-import { confirmDatabase } from './database/Confirm/initialize';
+import { confirmDatabase } from './database/Confirm/confirmDatabase';
 
 confirmDatabase();
 
