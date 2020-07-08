@@ -1,36 +1,33 @@
 import React from 'react';
 import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Icon } from 'react-native-elements';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 type Props = {
-    onPress: () => void
-}
+    onPress: () => void;
+};
 
-const EditButton: React.FC<Props> = props => {
+const EditButton: React.FC<Props> = (props) => {
+    const { onPress } = props;
 
-    const { onPress } = props
-
-    return(
+    return (
         <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-        <TouchableHighlight 
-            style={styles.editButton}
-            onPress={onPress}
-            underlayColor={'#D6D1D1'}
-            activeOpacity={0.7}
-        >
-            
-            <Icon
-              name="edit"
-              color="#fff"
-              size={wp('6%')}
-            />
-        </TouchableHighlight>
+            <TouchableHighlight
+                style={styles.editButton}
+                onPress={onPress}
+                underlayColor={'#D6D1D1'}
+                activeOpacity={0.7}
+            >
+                <Icon name="edit" color="#fff" size={wp('6%')} />
+            </TouchableHighlight>
         </View>
-    )
-}
+    );
+};
 
-export default EditButton
+export default EditButton;
 
 const styles = StyleSheet.create({
     editButton: {
@@ -41,4 +38,4 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: '#FF4FC3'
     }
-})
+});

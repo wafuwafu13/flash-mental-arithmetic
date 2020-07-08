@@ -1,56 +1,54 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 type Props = {
-    onPress: () => void
-    setAnswer: React.Dispatch<React.SetStateAction<number | undefined>>
-}
+    onPress: () => void;
+    setAnswer: React.Dispatch<React.SetStateAction<number | undefined>>;
+};
 
-const AnswerScreen: React.FC<Props> = props => {
+const AnswerScreen: React.FC<Props> = (props) => {
+    const { onPress, setAnswer } = props;
 
-    const { onPress, setAnswer } = props
-
-    const [isAnswered, setIsAnswered] = useState<boolean>(false)
+    const [isAnswered, setIsAnswered] = useState<boolean>(false);
 
     const handleAnswer = (input_number: string): void => {
-        const number: number = Number(input_number)
+        const number: number = Number(input_number);
         if (number) {
-            setIsAnswered(true)
-            setAnswer(number)
+            setIsAnswered(true);
+            setAnswer(number);
         } else {
-            setIsAnswered(false)
+            setIsAnswered(false);
         }
-    }
+    };
 
-    return(
+    return (
         <View style={styles.container}>
-            <Text style={styles.text}>
-                回答を入力してください。
-            </Text>
+            <Text style={styles.text}>回答を入力してください。</Text>
             <TextInput
-              keyboardType = 'numeric'
-              onChangeText={handleAnswer}
-              style={styles.input} 
-              maxLength={6}
+                keyboardType="numeric"
+                onChangeText={handleAnswer}
+                style={styles.input}
+                maxLength={6}
             />
-            { isAnswered && (
+            {isAnswered && (
                 <TouchableHighlight
-                  onPress={onPress}
-                  style={styles.button}
-                  activeOpacity={0.7}
-                  underlayColor={'#B73C8D'}
+                    onPress={onPress}
+                    style={styles.button}
+                    activeOpacity={0.7}
+                    underlayColor={'#B73C8D'}
                 >
-                    <Text style={styles.buttonText}>
-                        回答
-                    </Text>
+                    <Text style={styles.buttonText}>回答</Text>
                 </TouchableHighlight>
             )}
         </View>
-    )
-}
+    );
+};
 
-export default AnswerScreen
+export default AnswerScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
         marginBottom: hp('7%'),
         borderWidth: wp('0.3%'),
         borderColor: '#DDD',
-        padding: wp('1%'),
+        padding: wp('1%')
     },
     button: {
         width: wp('40%'),
@@ -79,10 +77,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 4,
-        backgroundColor: '#FF4FC3',
+        backgroundColor: '#FF4FC3'
     },
     buttonText: {
         color: '#fff',
         fontSize: wp('5%')
     }
-})
+});

@@ -1,67 +1,70 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableHighlight, TextInput } from 'react-native';
 import { Header } from 'react-native-elements';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 import BackArrow from '../../elements/BackArrow';
 
 type Props = {
-    onPressDecision: () => void
-    onPressBack: () => void
-    changeValue: React.Dispatch<React.SetStateAction<number | undefined>>
-}
+    onPressDecision: () => void;
+    onPressBack: () => void;
+    changeValue: React.Dispatch<React.SetStateAction<number | undefined>>;
+};
 
-const IntervalModal: React.FC<Props> = props => {
+const IntervalModal: React.FC<Props> = (props) => {
+    const { onPressDecision, onPressBack, changeValue } = props;
 
-    const { onPressDecision, onPressBack, changeValue } = props
+    const [isValidated, setIsValidated] = useState<boolean>(false);
 
-    const [isValidated, setIsValidated] = useState<boolean>(false)
-
-    let validateList: number[] = []
+    let validateList: number[] = [];
     for (let i = 100; i <= 2000; i++) {
-        validateList.push(i)
-    } 
-
-    const handleInterval = (number: string) => {
-        const input_number: number = Number(number)
-        const index: number = validateList.findIndex(number => number == input_number)
-        if (index === -1) {
-            setIsValidated(false)
-        } else {
-            setIsValidated(true)
-            changeValue(input_number)
-        }
+        validateList.push(i);
     }
 
-    return(
+    const handleInterval = (number: string) => {
+        const input_number: number = Number(number);
+        const index: number = validateList.findIndex((number) => number == input_number);
+        if (index === -1) {
+            setIsValidated(false);
+        } else {
+            setIsValidated(true);
+            changeValue(input_number);
+        }
+    };
+
+    return (
         <View style={styles.modal}>
             <Header
-              leftComponent={<BackArrow type="setting" onPress={onPressBack} />}
-              centerComponent={{ text: '表示間隔', style: { color: '#fff', fontSize: wp('5%')} }}
-              backgroundColor='#FF4FC3'
+                leftComponent={<BackArrow type="setting" onPress={onPressBack} />}
+                centerComponent={{
+                    text: '表示間隔',
+                    style: { color: '#fff', fontSize: wp('5%') }
+                }}
+                backgroundColor="#FF4FC3"
             />
             <Text style={styles.text}>100~2000の数字を入力してください。</Text>
             <TextInput
-              keyboardType = 'numeric'
-              onChangeText={handleInterval}
-              maxLength={4}
-              style={styles.input} 
+                keyboardType="numeric"
+                onChangeText={handleInterval}
+                maxLength={4}
+                style={styles.input}
             />
-            { isValidated && (
+            {isValidated && (
                 <TouchableHighlight
-                  onPress={onPressDecision}
-                  style={styles.button}
-                  activeOpacity={0.7}
-                  underlayColor={'#B73C8D'}
+                    onPress={onPressDecision}
+                    style={styles.button}
+                    activeOpacity={0.7}
+                    underlayColor={'#B73C8D'}
                 >
-                    <Text style={styles.buttonText}>
-                        決 定
-                    </Text>
+                    <Text style={styles.buttonText}>決 定</Text>
                 </TouchableHighlight>
             )}
         </View>
-    )
-}
+    );
+};
 
 export default IntervalModal;
 
@@ -96,4 +99,4 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: wp('5%')
     }
-})
+});
