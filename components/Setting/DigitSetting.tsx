@@ -28,6 +28,7 @@ const DigitSetting: React.FC<Props> = (props) => {
     };
 
     const onPressBack = (): void => {
+        setDigit(undefined);
         setModalVisible(!modalVisible);
     };
 
