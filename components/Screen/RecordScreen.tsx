@@ -11,7 +11,7 @@ import RecordList from '../RecordList';
 
 import BackArrow from '../../elements/BackArrow';
 
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 type RecordScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Record'>;

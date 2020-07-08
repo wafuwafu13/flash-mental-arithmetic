@@ -15,20 +15,15 @@ import FourAnswerScreen from './FourAnswerScreen';
 
 import { randomNumber } from '../../elements/RandomNumber';
 
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../../types/RootStackParamList';
 import { StackNavigationProp } from '@react-navigation/stack';
+
+import { Setting } from '../../types/Setting';
 
 type StartScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Start'>;
 
 type Props = {
     navigation: StartScreenNavigationProp;
-};
-
-type Setting = {
-    surface: number;
-    sheet: number;
-    digit: number;
-    interval: number;
 };
 
 const StartScreen: React.FC<Props> = ({ navigation }) => {
