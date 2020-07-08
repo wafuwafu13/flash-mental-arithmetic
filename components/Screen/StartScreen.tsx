@@ -24,6 +24,13 @@ type Props = {
     navigation: StartScreenNavigationProp;
 }
 
+type Setting = {
+    'surface': number
+    'sheet': number
+    'digit': number
+    'interval': number
+}
+
 const StartScreen: React.FC<Props> = ({ navigation }) => {
 
     const [surface, setSurface] = useState<number | undefined>()
@@ -48,7 +55,7 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
 
     const [isend, setIsEnd] = useState<boolean>(false);
 
-    let settingList: number[] = [];
+    let settingObj: Setting = {'surface': 1, 'sheet': 10, 'digit': 1, 'interval': 1000};
 
     async function playSound(): Promise<void>{
         try {
@@ -164,35 +171,59 @@ const StartScreen: React.FC<Props> = ({ navigation }) => {
         setIsEnd(true)
     }
 
-    async function getSetting(): Promise<number[]> {
+    async function getSetting(): Promise<Setting> {
         const db = firebase.firestore()
         const auth: any= firebase.auth()
         let docRef = db.collection(auth.currentUser.uid)
-        await docRef.get().then((settings) => {
-            settings.forEach((doc) => {
-                console.log(doc.data())
-                settingList.push(doc.data().value) // [digit, interval, record, sheet, surface]
-            })
+        await docRef.doc("surface").get().then((doc: any) => {
+            if (doc.exists) {
+                settingObj['surface'] = doc.data().value
+            }
         })
         .catch((error) => {
             console.log(error)
         })
-        return settingList
+        await docRef.doc("sheet").get().then((doc: any) => {
+            if (doc.exists) {
+                settingObj['sheet'] = doc.data().value
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        await docRef.doc("digit").get().then((doc: any) => {
+            if (doc.exists) {
+                settingObj['digit'] = doc.data().value
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        await docRef.doc("interval").get().then((doc: any) => {
+            if (doc.exists) {
+                settingObj['interval'] = doc.data().value
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        
+        return settingObj
     }
     
     useEffect(() => {
-        getSetting().then((settingList) => {
+        getSetting().then((settingObj) => {
 
-            let surface: number = settingList[4] || 1
+            let surface: number = settingObj['surface']
             setSurface(surface)
 
-            let sheet: number = settingList[3] || 10
+            let sheet: number = settingObj['sheet']
             setSheet(sheet)
 
-            let digit: number = settingList[0] || 1
+            let digit: number = settingObj['digit']
             setDigit(digit)
 
-            let interval: number = settingList[1] || 1000
+            let interval: number = settingObj['interval']
             setInterval(interval)
 
             console.log(surface + '面')

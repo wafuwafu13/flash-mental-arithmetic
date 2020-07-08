@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView, TimerMixin } from 'react-native';
+import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 

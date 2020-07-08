@@ -2,6 +2,7 @@ import firebase from 'firebase'
 
 export const addRecord = (surface: number, sheet: number, digit: number, interval: number, result: string) => {
 
+    // 認証済みユーザーかどうかの確認
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           const uid = user.uid;
