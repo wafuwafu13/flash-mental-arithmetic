@@ -28,6 +28,7 @@ const SurfaceSetting: React.FC<Props> = (props) => {
     };
 
     const onPressBack = () => {
+        setSurface(undefined);
         setModalVisible(!modalVisible);
     };
 

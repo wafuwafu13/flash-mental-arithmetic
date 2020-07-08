@@ -28,6 +28,7 @@ const SheetSetting: React.FC<Props> = (props) => {
     };
 
     const onPressBack = () => {
+        setSheet(undefined);
         setModalVisible(!modalVisible);
     };
 

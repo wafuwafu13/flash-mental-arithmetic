@@ -28,6 +28,7 @@ const IntervalSetting: React.FC<Props> = (props) => {
     };
 
     const onPressBack = (): void => {
+        setInterval(undefined);
         setModalVisible(!modalVisible);
     };
 
