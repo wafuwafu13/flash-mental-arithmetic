@@ -33,18 +33,37 @@ const SettingScreen: React.FC<Props> = ({ navigation }) => {
     const db = firebase.firestore()
     const auth: any = firebase.auth()
     let docRef = db.collection(auth.currentUser.uid)
-    docRef.get().then((settings) => {
-        let settingList: number[] = []
-        settings.forEach((doc) => {
-            settingList.push(doc.data().value) // [digit, interval, record, sheet, surface]
-        })
-        setCurrentSurface(settingList[4] || 1)
-        setCurrentSheet(settingList[3] || 10)
-        setCurrentDigit(settingList[0] || 1)
-        setCurrentInterval(settingList[1] || 1000)
+
+    docRef.doc("surface").get().then((doc: any) => {
+        if (doc.exists) {
+            setCurrentSurface(doc.data().value)
+        } else {
+            setCurrentSurface(1)
+        }
     })
-    .catch((error) => {
-        console.log(error)
+
+    docRef.doc("sheet").get().then((doc: any) => {
+        if (doc.exists) {
+            setCurrentSheet(doc.data().value)
+        } else {
+            setCurrentSheet(10)
+        }
+    })
+
+    docRef.doc("digit").get().then((doc: any) => {
+        if (doc.exists) {
+            setCurrentDigit(doc.data().value)
+        } else {
+            setCurrentDigit(1)
+        }
+    })
+
+    docRef.doc("interval").get().then((doc: any) => {
+        if (doc.exists) {
+            setCurrentInterval(doc.data().value)
+        } else {
+            setCurrentInterval(1000)
+        }
     })
 
     return(

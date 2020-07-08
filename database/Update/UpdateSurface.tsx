@@ -5,6 +5,7 @@ export const updateSurface = (surface: number) => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           const uid = user.uid;
+          console.log(uid)
           const db = firebase.firestore()
           db.collection(uid).doc('surface').set({
             value: surface
