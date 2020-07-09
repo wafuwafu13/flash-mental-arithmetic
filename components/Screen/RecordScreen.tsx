@@ -14,24 +14,16 @@ import BackArrow from '../../elements/BackArrow';
 import { RootStackParamList } from '../../types/RootStackParamList';
 import { StackNavigationProp } from '@react-navigation/stack';
 
+import { Record } from '../../types/Record';
+
 type RecordScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Record'>;
 
 type Props = {
     navigation: RecordScreenNavigationProp;
 };
 
-// type Record = [{
-//     date: any
-//     digit: number
-//     interval: number
-//     key: string
-//     result: string
-//     sheet: number
-//     surface: number
-// }]
-
 const RecordScreen: React.FC<Props> = ({ navigation }) => {
-    const [recordList, setRecordList] = useState<{ [key: string]: number | string }[]>([]);
+    const [recordList, setRecordList] = useState<Record[]>([]);
 
     useEffect(() => {
         const auth: any = firebase.auth();
@@ -41,8 +33,8 @@ const RecordScreen: React.FC<Props> = ({ navigation }) => {
             .orderBy('date', 'desc')
             .get()
             .then((records) => {
-                let recordList: { [key: string]: number | string }[] = [];
-                records.forEach((doc) => {
+                let recordList: Record[] = [];
+                records.forEach((doc: any) => {
                     recordList.push({ ...doc.data(), key: doc.id });
                 });
                 setRecordList(recordList);

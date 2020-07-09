@@ -1,19 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 import { Divider } from 'react-native-elements';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
+import { Record } from '../types/Record';
+
 type Props = {
-    recordList: { [key: string]: number | string }[];
+    recordList: Record[];
 };
 
 const RecordList: React.FC<Props> = (props) => {
     const { recordList } = props;
 
-    const renderRecord = ({ item }: { item: { [key: string]: number | string } }): JSX.Element => {
+    const renderRecord = ({ item }: { item: Record }): JSX.Element => {
         const timestamp: any = item.date;
         const date: string[] = timestamp.toDate().toISOString().split('T')[0].split('-');
         const month: string = date[1][0] == '0' ? date[1][1] : date[1];
@@ -36,11 +38,9 @@ const RecordList: React.FC<Props> = (props) => {
     };
 
     return (
-        <ScrollView>
-            <View>
-                <FlatList data={recordList} renderItem={renderRecord} />
-            </View>
-        </ScrollView>
+        <View>
+            <FlatList data={recordList} renderItem={renderRecord} />
+        </View>
     );
 };
 
