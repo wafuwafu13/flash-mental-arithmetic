@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with defaults 1`] = `
+<Text
+  data-test="homeTitle"
+  style={
+    Object {
+      "color": "#fff",
+      "fontSize": 52.5,
+    }
+  }
+>
+  多面！フラッシュ暗算
+</Text>
+`;

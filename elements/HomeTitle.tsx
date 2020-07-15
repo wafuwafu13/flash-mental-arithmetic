@@ -6,7 +6,7 @@ import {
 } from 'react-native-responsive-screen';
 
 const HomeTitle: React.FC = () => {
-    return <Text style={styles.title}>多面！フラッシュ暗算</Text>;
+    return <Text style={styles.title} data-test="homeTitle">多面！フラッシュ暗算</Text>;
 };
 
 export default HomeTitle;
